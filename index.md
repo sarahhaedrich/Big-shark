@@ -14,4 +14,4 @@ Link to article: https://www.int-arch-photogramm-remote-sens-spatial-inf-sci.net
 
 
 
-[My First QGIS Model](qgismodel.md)
+[My First QGIS Model](qgisModel.md)
