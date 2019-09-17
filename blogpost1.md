@@ -10,7 +10,7 @@ The authors of this paper reviewed various geospatial technologies in order to c
 The final result of the study was a table listing a toolbox of geospatial tools (EpiCollect5, Arbiter, GeoODK, Field Papers, MapServer, GeoServer, GeoNetwork, Geonode, MapWindow5, QGIS) and their respective functions for urban designers. The researchers concluded that many of the tools fulfilled the functional requirements, and the real difference appeared when looking at non-functional requirements. In this study, I think it’s crucial that the geospatial tools analyzed were open source so that the study is relative and accessible for all urban designers, researchers, and professionals in South Africa. 
 
 
-Link to article: https://www.int-arch-photogramm-remote-sens-spatial-inf-sci.net/XLII-4-W14/93/2019/isprs-archives-XLII-4-W14-93-2019.pdf
+[Link to article](https://www.int-arch-photogramm-remote-sens-spatial-inf-sci.net/XLII-4-W14/93/2019/isprs-archives-XLII-4-W14-93-2019.pdf)
 
 
 [Back to main page](index.md)
