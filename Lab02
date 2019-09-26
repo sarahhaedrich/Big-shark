@@ -6,7 +6,7 @@ After downloading the data for Mt. Kilimanjaro from Earthdata Search, I had two 
 
 I now have a map containing a digital elevation model (DEM) of Mt. Kilimanjaro. Before analysing the DEM, I first projected the recently mosaicked map into the UTM projection (Universal Transverse Mercator projection) from a geographic coordinate system so that we can accurately analyze linear measurements. I then used the analyze hillshade tool to display the amount of light, or lack of light, that Mt. Kilimanjaro receives when the sun is set at a specified azimuth angle and height. In this image, the azimuth is set at 315, and the height is set at 45 degrees.
 
-[Hillshade](https://github.com/sarahhaedrich/sarahhaedrich.github.io/blob/master/Hillshade_Image.png)
+![Hillshade](Hillshade_Image.png)
 
 
 
@@ -14,3 +14,6 @@ The next analysis I used was the Sink Drainage Route Dectection tool. This tool 
 
 
 [Sink Drainage Route](https://github.com/sarahhaedrich/sarahhaedrich.github.io/blob/master/Sink_Route_Image.png)
+
+
+
