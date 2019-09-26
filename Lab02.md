@@ -18,4 +18,10 @@ Next, I used the Sink Removal Tool to eliminate these areas from the DEM. This s
 
 ![Sink Removal](Mosaic_no_sink.png)
 
-After eliminating sink holes from the DEM map, I can now do flow analysis. I used the Flow Accumulation tool to figure out how much water flows into each cell. 
+After eliminating sink holes from the DEM map, I can now do flow analysis. I used the Flow Accumulation tool to figure out how much water flows into each cell. IF a cell has a value of 10, then that means water from 9 other cells flow into this cell (a value means no water flows into the cell). 
+
+![Flow Accumulation](Flow_Accumulation.png)
+
+Finally, I can use the Flow Accumulation output to find the river network. While using this tool, I set the parameter to the instialization threshold of 1000. In other words, a cell must have a minimum flow of water from 999 other cells to appear on the map. This filtering process is how streams become distinguished on the map. As streams increase in flow, the color turns from blue to green to red. 
+
+![Channel Network](Channel_Network.png)
