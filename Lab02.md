@@ -18,7 +18,7 @@ Next, I used the Sink Removal Tool to eliminate these areas from the DEM. This s
 
 ![Sink Removal](Mosaic_no_sink.png)
 
-After eliminating sink holes from the DEM map, I can now do flow analysis. I used the Flow Accumulation tool to figure out how much water flows into each cell. IF a cell has a value of 10, then that means water from 9 other cells flow into this cell (a value means no water flows into the cell). 
+After eliminating sink holes from the DEM map, I can now do flow analysis. I used the Flow Accumulation tool to figure out how much water flows into each cell. IF a cell has a value of 10, then that means water from 9 other cells flow into this cell (a value of 1 means no water flows into the cell). 
 
 ![Flow Accumulation](Flow_Accumulation.png)
 
