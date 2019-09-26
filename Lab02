@@ -10,10 +10,10 @@ I now have a map containing a digital elevation model (DEM) of Mt. Kilimanjaro. 
 
 
 
-The next analysis I used was the Sink Drainage Route Dectection tool. This tool creates a grid showing which direction water will flow in each cell, including no flow. Determining the "no flow" areas are helpful in order to eliminate areas with no data or areas that act as sink holes for water. Eliminating these areas are important for later in lab when we analyze the hydrological flow of the area (otherwise the hydrological flow will get "stuck" in these areas).
+The next analysis I used was the Sink Drainage Route Dectection tool. This tool creates a grid showing which direction water will flow in each cell, including no flow. Determining the "no flow" areas are helpful in order to eliminate areas with no data or areas that act as sink holes for water. 
 
+! [Sink Drainage Route](Sink_Route_Image.png)
 
-![Sink Drainage Route](Sink_Route_Image.png)
+Next, I used the Sink Removal Tool to eliminate these areas from the DEM. This step is important for later in lab when we analyze the hydrological flow of the area (otherwise the hydrological flow will get "stuck" in these areas).
 
-
-
+! [Sink Removal](Mosaic_no_sink.png)
