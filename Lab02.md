@@ -1,4 +1,4 @@
-## Lab 2
+## Lab 3
 
 After downloading the data for Mt. Kilimanjaro from Earthdata Search, I had two tiles, with each tile covering a 1 degree by 1 degree area. I then knitted these two tiles together using the "Mosaicking Tool."
 
