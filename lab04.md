@@ -21,7 +21,12 @@ In Lab 4, I used batch script files to preform the same hydrological analysis as
 ![ASTER NUM Visualization](ASTER_N.png) ![](ASTER_N_legend.png)
 
 
-The first two steps in the hydrological analysis was to mosaick the two tiles together into one grid, and then reproject the mosaicked grid into the UTM projection. After these initial steps, I preformed a hillshade analysis using [this batch script](Hillshade.bat).
+The first two steps in the hydrological analysis was to mosaick the two tiles together into one grid, and then reproject the mosaicked grid into the UTM projection. After this step, we are able to look at the difference between the ASTER DEM files and the SRTM DEM files. I used the "Grid Difference" tool in Saga to preform this step.
+
+# Here is the SRTM data subtracted from the ASTER Data:
+
+
+After these initial steps, I preformed a hillshade analysis using the [hillshade batch script](Hillshade.bat).
 
 # Here is the hillshade analysis of Mt. Kilomanjaro using the batch script with SRTM data:
 
@@ -30,7 +35,6 @@ The first two steps in the hydrological analysis was to mosaick the two tiles to
 
 # Here is the hillshade analysis of Mt. Kilomanjaro using the ASTER data:
 
+![Aster Hillshade](ASTER_Hillshade.png) ![](ASTER_Hillshade_legend.png)
 
-
-
-Here is the [batch script](ChannelNetworkSRTM.bat) I wrote to preform the hydrological analysis of 
+Here is the [channel network batch script](ChannelNetworkSRTM.bat) I wrote to preform the hydrological analysis of Mt. Kilomanjaro.
