@@ -5,17 +5,17 @@ In Lab 4, I used batch script files to preform the same hydrological analysis as
 
 Here are the SRTM DEM Files:
 
-![SRTM DEM Visualization](SRTM_DEM.png) ![SRTM DEM Legend](SRTM_DEM_legend.png)
+![SRTM DEM Visualization](SRTM_DEM.png) ![](SRTM_DEM_legend.png)
 
 
 
-![SRTM NUM Visualization](SRTM_NUM.png) ![SRTM NUM Legend](SRTM_NUM_legend.png)
+![SRTM NUM Visualization](SRTM_NUM.png) ![](SRTM_NUM_legend.png)
 
 
 And here are the ASTER Files:
 
 
-![ASTER DEM Visualization](SRTM_DEM.png) ![SRTM_DEM_legend.png]
+![ASTER DEM Visualization](SRTM_DEM.png) ![](SRTM_DEM_legend.png)
 
 
-![ASTER NUM Visualization](SRTM_NUM.png) ![SRTM_NUM_legend.png]
+![ASTER NUM Visualization](SRTM_NUM.png) ![](SRTM_NUM_legend.png)
