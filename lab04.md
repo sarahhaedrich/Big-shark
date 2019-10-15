@@ -15,7 +15,7 @@ Here are the SRTM DEM Files:
 And here are the ASTER Files:
 
 
-![ASTER DEM Visualization](SRTM_DEM.png) ![](SRTM_DEM_legend.png)
+![ASTER DEM Visualization](ASTER DEM.png) ![](SRTM_DEM_legend.png)
 
 
-![ASTER NUM Visualization](SRTM_NUM.png) ![](SRTM_NUM_legend.png)
+![ASTER NUM Visualization](ASTER NUM.png) ![](ASTER NUM_legend.pngSRTM_NUM_legend.png)
