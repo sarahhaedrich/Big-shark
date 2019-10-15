@@ -12,7 +12,7 @@ The final result of the study was a table listing a toolbox of geospatial tools 
 
 Below is a table summarizing the article findings:
 
-![Table 1](Table1_BlogPost1)
+![Table 1](Table1_BlogPost1.png)
 
 
 [Link to article](https://www.int-arch-photogramm-remote-sens-spatial-inf-sci.net/XLII-4-W14/93/2019/isprs-archives-XLII-4-W14-93-2019.pdf)
