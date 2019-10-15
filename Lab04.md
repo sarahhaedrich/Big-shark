@@ -25,6 +25,8 @@ The first two steps in the hydrological analysis was to mosaick the two tiles to
 
 # Here is the SRTM data subtracted from the ASTER Data:
 
+![(ASTER DEM) - (SRTM DEM)](Difference(ASTER_SRTM).png) ![](Difference(ASTER_SRTM)_legend.png)
+
 
 After these initial steps, I preformed a hillshade analysis using the [hillshade batch script](Hillshade.bat).
 
