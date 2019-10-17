@@ -47,14 +47,16 @@ There is no noticable difference between ASTER data and SRTM data in the hillsha
 
 Next, I wrote a batch script to preform a hydrological analysis of Mt. Kilomanjaro. The batch script allows the user to preform all the steps in the hydrological analysis in one step, and the functions preformed in this script mirror the functions from Lab 03. Here is the [channel network batch script](ChannelNetworkSRTM.bat) I wrote to preform the hydrological analysis of Mt. Kilomanjaro.The batch script still produces SAGA files for each function in the code, which is helpful so we can further analyze the differences between the ASTER data and the SRTM data.
 
-# Here is the flow accumulation of Mt. Kilomanjaro with SRTM data: 
-![SRTM Flow Accumulation](SRTM_flow_Closeup.PNG) 
+# Here is the difference in flow accumulation represented by SRTM data subtracted from ASTER data: 
+![SRTM Flow Accumulation](Difference_Flow.PNG) 
 
 
-# Here is the flow accumulation of Mt. Kilomanjaro with ASTER data: 
-![ASTER Flow Accumulation](Aster_Flow_Closeup.PNG)
+# Here is the respective NUM files for the selected area: 
+![ASTER NUM for Difference in Flow Accumulation](ASTER_NUM_Difference_FLOW.PNG)
 
-In this region, the SRTM data appears to be ccapturing more details in the flow accumulation. If we refer back to the SRTM NUM files, we see that the SRTM data in this region is sourced from the GMTED 2010 oversampled data ("oversampled" meaning the data used here has a higher resolution than the SRTM). Due to this difference, the SRTM flow accumulation may be more accurate in this region than the ASTER flow accumulation. 
+![SRTM NUM for Difference in Flow Accumulation](SRTM_NUM_Difference_Flow.PNG)
+
+In this region....
 
 
 The final product of the batch scripts is the channel network. 
