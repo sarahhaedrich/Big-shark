@@ -32,7 +32,7 @@ After reprojecting the data, we are able to look at the difference in elevation 
 
 
 After the preliminary steps, I preformed a hillshade analysis using the [hillshade batch script](Hillshade.bat). To help visualize the findings, I zoomed in on the map on a focus region on the Western side of the mountain. 
-[Focus Region](Focus_region.png)
+![Focus Region](Focus_region.png)
 
 # Here is the hillshade analysis of Mt. Kilomanjaro using the batch script with SRTM data:
 
