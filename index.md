@@ -6,3 +6,6 @@
 
 
 [Lab 02](Lab02.md)
+
+[Lab 04](Lab04.md)
+
