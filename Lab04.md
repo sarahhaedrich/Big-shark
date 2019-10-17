@@ -61,7 +61,7 @@ The final product of the batch scripts is the channel network.
 
 # Here is the channel network of Mt. Kilomanjaro using SRTM data in 2D and 3D:
 
-![SRTM Channel Network 2D](SRTM_flow_Closeup.PNG) ![SRTM Channel Netowrk 3D](3D_hill_channelnetwork_SRTM.PNG)
+![SRTM Channel Network 2D](SRTM_Channelnetwork_Closeup.PNG) ![SRTM Channel Netowrk 3D](3D_hill_channelnetwork_SRTM.PNG)
 # Here is the channel network of Mt. Kilomanjaro using ASTER data in 2D and 3D:
 
 
