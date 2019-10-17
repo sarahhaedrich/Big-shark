@@ -43,11 +43,15 @@ After the preliminary steps, I preformed a hillshade analysis using the [hillsha
 
 ![Aster Hillshade](ASTER_Hillshade_CloseUp.PNG)
 
+There is no noticable difference between ASTER data and SRTM data in the hillshade analysis.
+
 Next, I wrote a batch script to preform a hydrological analysis of Mt. Kilomanjaro. The batch script allows the user to preform all the steps in the hydrological analysis in one step, and the functions preformed in this script mirror the functions from Lab 03. Here is the [channel network batch script](ChannelNetworkSRTM.bat) I wrote to preform the hydrological analysis of Mt. Kilomanjaro.The batch script still produces SAGA files for each function in the code, which is helpful so we can further analyze the differences between the ASTER data and the SRTM data.
 
-# Here is the flow accumulation of Mt. Kilomanjaro (The SRTM data is on the left and the Aster data is on the right:
+# Here is the flow accumulation of Mt. Kilomanjaro 
 
-![](SRTM_flow_Closeup.PNG) ![](Aster_Flow_Closeup.PNG)
+![SRTM Flow Accumulation](SRTM_flow_Closeup.PNG) 
+
+![ASTER Flow Accumulation](Aster_Flow_Closeup.PNG)
 
 
 
