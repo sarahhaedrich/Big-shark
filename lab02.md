@@ -4,7 +4,7 @@ In the first lab, we created a model to calculate direction and distance from a 
 
 # Here is a screen shot of my working model:
 
-![Distance and Direction Model]([Model_Lab02.PNG)
+![](Model_Lab02.PNG)
 
 # Here is a map displaying the distance of El Paso census tracts from a point representing the Central Business District (for this lab, I used an arbitrary point):
 
