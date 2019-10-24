@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        html, body, #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/Subwards_1.js"></script>
+        <script src="data/Schools_2.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:19, minZoom:6
+        }).fitBounds([[-7.198612248017968,38.85336844161594],[-6.552564142517882,39.75637932015712]]);
+        map.attributionControl.setPrefix('<a href="https://sarahhaedrich.github.io/" target="_blank">Sarah Haedrich</a> & <a href="https://marcovg.github.io" target="_blank">Marco van Gemeren</a> &middot; <a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="http://leafletjs.com" title="A JS library for interactive maps" target="_blank">Leaflet</a> &middot; <a href="https://qgis.org" title="QGIS" target="_blank">QGIS</a> &middot; <a href="https://geonode.resilienceacademy.ac.tz/" title="Resilience Academy" target="_blank">Resilience Academy</a>');
+        var hash = new L.Hash(map);
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+            map.setMaxBounds(map.getBounds());
+        }
+        var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            opacity: 1.0,
+            attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
+        });
+        layer_OSMStandard_0;
+        map.addLayer(layer_OSMStandard_0);
+        function pop_Subwards_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>District Name</strong><br />' + (feature.properties['district_n'] !== null ? Autolinker.link(String(feature.properties['district_n'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ward Name</strong><br />' + (feature.properties['ward_name'] !== null ? Autolinker.link(String(feature.properties['ward_name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Subward Name</strong><br />' + (feature.properties['vil_mtaa_n'] !== null ? Autolinker.link(String(feature.properties['vil_mtaa_n'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>total</strong><br />' + (feature.properties['total'] !== null ? Autolinker.link(String(feature.properties['total'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Ward Name</strong><br />' + (feature.properties['ward'] !== null ? Autolinker.link(String(feature.properties['ward'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Subward Name</strong><br />' + (feature.properties['subward'] !== null ? Autolinker.link(String(feature.properties['subward'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['subward_nb'] !== null ? Autolinker.link(String(feature.properties['subward_nb'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>District Name</strong><br />' + (feature.properties['district'] !== null ? Autolinker.link(String(feature.properties['district'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Number of Schools</strong><br />' + (feature.properties['numschools'] !== null ? Autolinker.link(String(feature.properties['numschools'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Subwards_1_0(feature) {
+            if (feature.properties['numschools'] >= 0.000000 && feature.properties['numschools'] <= 0.000000 ) {
+                return {
+                pane: 'pane_Subwards_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(68,1,84,1.0)',
+            }
+            }
+            if (feature.properties['numschools'] >= 0.000000 && feature.properties['numschools'] <= 2.000000 ) {
+                return {
+                pane: 'pane_Subwards_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(58,82,139,1.0)',
+            }
+            }
+            if (feature.properties['numschools'] >= 2.000000 && feature.properties['numschools'] <= 5.000000 ) {
+                return {
+                pane: 'pane_Subwards_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(32,144,141,1.0)',
+            }
+            }
+            if (feature.properties['numschools'] >= 5.000000 && feature.properties['numschools'] <= 9.000000 ) {
+                return {
+                pane: 'pane_Subwards_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(93,201,98,1.0)',
+            }
+            }
+            if (feature.properties['numschools'] >= 9.000000 && feature.properties['numschools'] <= 17.000000 ) {
+                return {
+                pane: 'pane_Subwards_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(253,231,37,1.0)',
+            }
+            }
+        }
+        map.createPane('pane_Subwards_1');
+        map.getPane('pane_Subwards_1').style.zIndex = 401;
+        map.getPane('pane_Subwards_1').style['mix-blend-mode'] = 'normal';
+        var layer_Subwards_1 = new L.geoJson(json_Subwards_1, {
+            attribution: '',
+            pane: 'pane_Subwards_1',
+            onEachFeature: pop_Subwards_1,
+            style: style_Subwards_1_0,
+        });
+        bounds_group.addLayer(layer_Subwards_1);
+        map.addLayer(layer_Subwards_1);
+        function pop_Schools_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>name</strong><br />' + (feature.properties['name'] !== null ? Autolinker.link(String(feature.properties['name'])) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ward'] !== null ? Autolinker.link(String(feature.properties['ward'])) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_Schools_2_0() {
+            return {
+                pane: 'pane_Schools_2',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(164,9,12,1.0)',
+            }
+        }
+        map.createPane('pane_Schools_2');
+        map.getPane('pane_Schools_2').style.zIndex = 402;
+        map.getPane('pane_Schools_2').style['mix-blend-mode'] = 'normal';
+        var layer_Schools_2 = new L.geoJson(json_Schools_2, {
+            attribution: '',
+            pane: 'pane_Schools_2',
+            onEachFeature: pop_Schools_2,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_Schools_2_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_Schools_2);
+        var baseMaps = {};
+        L.control.layers(baseMaps,{'<img src="legend/Schools_2.png" /> Schools': layer_Schools_2,'Subwards<br /><table><tr><td style="text-align: center;"><img src="legend/Subwards_1_00000.png" /></td><td>0.0 - 0.0</td></tr><tr><td style="text-align: center;"><img src="legend/Subwards_1_00201.png" /></td><td>0.0 - 2.0</td></tr><tr><td style="text-align: center;"><img src="legend/Subwards_1_20502.png" /></td><td>2.0 - 5.0</td></tr><tr><td style="text-align: center;"><img src="legend/Subwards_1_50903.png" /></td><td>5.0 - 9.0</td></tr><tr><td style="text-align: center;"><img src="legend/Subwards_1_901704.png" /></td><td>9.0 - 17.0</td></tr></table>': layer_Subwards_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
+        setBounds();
+		L.control.scale( {
+		imperial: false,
+		metric: true
+		} ) .addTo(map) ;
+        </script>
+    </body>
+</html>
