@@ -6,3 +6,4 @@
 
 [Lab 04: Batch Scripts](Lab04.md)
 
+[Lab 05: Dar es Salaam](dsmmap)
