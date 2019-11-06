@@ -8,7 +8,7 @@ In lab 5, Marco and I used data from the [Tanzania Resilience Academy](https://r
 
 ---------------------------------------------------------------------------------------------------------------
 
-Our first step involved using a pre-written batch script from our professor, Joe Holler. We used the batch script convertOSM.bat in the osm_script folder to convert our downloaded OSM files into files appropriate for QGIS. To download open street map files, we went to to (this link)[https://www.openstreetmap.org/] and exported the files, making sure to save the downloads as a ".osm" file. 
+Our first step involved using a pre-written batch script from our professor, Joe Holler. We used the batch script convertOSM.bat in the osm_script folder to convert our downloaded OSM files into files appropriate for QGIS. To download open street map files, we went to to [this link](https://www.openstreetmap.org/) and exported the files, making sure to save the downloads as a ".osm" file. 
 
 We then selected for the data that we wanted to use in our analysis. Seeing as we wanted to look at number of schools per ward, we used the SELECT tool WHERE amenity = 'school'. We added, "CREATE VIEW," so we could have a visualize of the data.
 
