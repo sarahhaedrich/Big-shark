@@ -3,11 +3,10 @@
 ## Lab 05
 
 
-[Dar Es Salaam](dsmmap)
 
+In lab 5, Marco and I used data from the [Tanzania Resilience Academy](https://resilienceacademy.ac.tz/) and [Open Street Map](https://www.openstreetmap.org/) to display the number of schools per ward in Dar Es Salaam, Tanzania. The concept of counting the number of schools per ward seems simple, but ran into some unexpected problems. Therefore, I have outlined our process below and attached the leaflet map at the bottom of the page. 
 
-In lab 5, Marco and I used data from the [Tanzania Resilience Academy](https://resilienceacademy.ac.tz/) and [Open Street Map](https://www.openstreetmap.org/) to display the number of schools per war in Dar Es Salaam, Tanzania. 
-
+---------------------------------------------------------------------------------------------------------------
 
 Our first step involved using a pre-written batch script from our professor, Joe Holler. We used the batch script convertOSM.bat in the osm_script folder to convert our downloaded OSM files into files appropriate for QGIS. To download open street map files, we went to to (this link)[https://www.openstreetmap.org/] and exported the files, making sure to save the downloads as a ".osm" file. 
 
@@ -68,31 +67,27 @@ SELECT btrim AS name, st_centroid as geom FROM groupedSchools
 UNION
 SELECT name, st_centroid as geom FROM blankschools
 
--------------------------------
-
 In the above query, we need to make sure we have the same number of columns in the two tables we are going to join. To make sure of this, we can specify the columns we want to join ("name", "st_centroid")
 
 We then need to count the number of schools within each ward. To do this, we
 first updated our remergedSchools data table and added the ward fid as a new column.
-
 
 UPDATE remergedSchools
 SET ward = subwards.fid
 FROM subwards
 WHERE st_intersects(remergedSchools.geom, st_transform(subwards.geom, 32727))
 
-Now we want to count up the schools in each ward - SO CLOSE
+Now we want to count up the schools in each ward:
 
 CREATE TABLE schoolWard as
 SELECT ward, count(*) as schoolCount FROM remergedSchools
 GROUP BY ward
 
+Since we couldn't carry over the geometry in our group by function, we needed to join the geometry data to the table we just made, making sure to add a new column before we do so.
 
-Since we couldn't carry over the geometry in our group by function, which was
-annoying, we need to now join the geometry data to the table the table we just
-made. So now, we're going to make a new column
+After we make the new column, we added the geometry data to the schoolWard table, and then used COUNT to count the number of schools within each SchoolWard. 
 
-ALTER TABLE subwards ADD COLUMN numSchools integer
+After this final step in our SQL query, we then presented our findings as a leaflet file, attached below.
 
-After we make the new column, we're going to add the geometry data to the schoolWard
-table -- yeeet
+Here is our final leaflet map:
+[Dar Es Salaam](dsmmap)
