@@ -6,4 +6,4 @@
 
 [Lab 04: Batch Scripts](Lab04.md)
 
-[Lab 05: Dar es Salaam](https://sarahhaedrich.github.io/dsmmap)
+[Lab 05: Dar es Salaam](lab05.md)
