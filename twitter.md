@@ -1,6 +1,6 @@
 
 
-## Twitter Case Study!!
+## Predicting Crime using Twitter and Kernal Density Estimation
 
 
 [Predicting crime using Twitter and Kernal density estimation](pdf.pdf)
