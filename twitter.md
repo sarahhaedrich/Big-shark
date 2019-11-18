@@ -25,7 +25,7 @@ Data: The researchers collected Twitter data using the official Twitter Streamin
 
 Reproducibility: The researchers are explicit about where they downloaded their crime data (from the Chicago Police Department using the Data Portal), and their Twitter data. Their methodology section includes an explaination about their use of LDA (latent Dirichlet Allocation) to predict the topic importance values for each neighborhood (the neighborhood boundaries are also defined and outlined by the researchers). The LDA method has additional help documentation and models online. The researchers then took out the stop-words using the method developed by Owoputi et al. (unclear if this package can be easily downloaded), and then the MALLET toolkit to predict the proportion of the discussion in each neighborhood that is devoted to each topic. The researchers then outline a step-by-step process of how they used the processed Twitter data in the crime prediction model. Below is an image of the crime prediction model only using the Kernal Density Estimation on the left and the crime prediction model including Twitter data on the right. 
 
-![Image])1-s2.0-S0167923614000268-gr5.jpg)
+![Image](1-s2.0-S0167923614000268-gr5.jpg)
 
 Replicability: I think this type of crime analysis using Twitter data can be replicated in other a new case. I'm assumming the Data Portal on the Chicago Police Department page can be found in other U.S. cities. I'm not sure if this type of information is availability digitally in other countries. If not, then this type of analysis would have to involve digitizing the criminal activity in a city, which would take a considerable amount of time. 
 
