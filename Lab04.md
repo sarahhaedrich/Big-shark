@@ -22,7 +22,7 @@ The prilimiary steps in the hydrological analysis were to mosaick the two tiles 
 ![ASTER NUM Visualization](ASTER_N.png) ![](ASTER_N_legend.png)
 
 
-The SRTM NUM file shows that elevation data from the western region of the mountain was sourced from the ASTER data set. Furthermore, the SRTM NUM file shows that the data includes water-masked areas south of Mt. Kilomanjaro.  
+The SRTM NUM file shows that elevation data from the western region of the mountain was sourced from the ASTER data set. Furthermore, the SRTM NUM file shows that the data includes water-masked areas south of Mt. Kilimanjaro.  
 
 After reprojecting the data, we are able to look at the difference in elevation data between the ASTER DEM files and the SRTM DEM files. I used the "Grid Difference" tool in Saga to preform this step. The whiter regions represent areas where ASTER data reports a higher elevation than the SRTM data, and the darker blue areas represent regions where SRTM data reports a higher elevation than the ASTER data.
 
@@ -34,18 +34,18 @@ After reprojecting the data, we are able to look at the difference in elevation 
 After the preliminary steps, I preformed a hillshade analysis using the [hillshade batch script](Hillshade.bat). To help visualize the findings, I zoomed in on the map on a focus region on the Western side of the mountain. 
 ![Focus Region](Focus_region.png)
 
-# Here is the hillshade analysis of Mt. Kilomanjaro using the batch script with SRTM data:
+# Here is the hillshade analysis of Mt. Kilimanjaro using the batch script with SRTM data:
 
 ![SRTM Hillshade](SRTM_Hillshade_Closeup.PNG)
 
 
-# Here is the hillshade analysis of Mt. Kilomanjaro using the ASTER data:
+# Here is the hillshade analysis of Mt. Kilimanjaro using the ASTER data
 
 ![Aster Hillshade](ASTER_Hillshade_CloseUp.PNG)
 
 There is no noticable difference between ASTER data and SRTM data in the hillshade analysis.
 
-Next, I wrote a batch script to preform a hydrological analysis of Mt. Kilomanjaro. The batch script allows the user to preform all the steps in the hydrological analysis in one step, and the functions preformed in this script mirror the functions from Lab 03. Here is the [channel network batch script](ChannelNetworkSRTM.bat) I wrote to preform the hydrological analysis of Mt. Kilomanjaro.The batch script still produces SAGA files for each function in the code, which is helpful so we can further analyze the differences between the ASTER data and the SRTM data.
+Next, I wrote a batch script to preform a hydrological analysis of Mt. Kilimanjaro. The batch script allows the user to preform all the steps in the hydrological analysis in one step, and the functions preformed in this script mirror the functions from Lab 03. Here is the [channel network batch script](ChannelNetworkSRTM.bat) I wrote to preform the hydrological analysis of Mt. Kilimanjaro.The batch script still produces SAGA files for each function in the code, which is helpful so we can further analyze the differences between the ASTER data and the SRTM data.
 
 # Here is the difference in flow accumulation represented by SRTM data subtracted from ASTER data: 
 ![SRTM Flow Accumulation](Difference_Flow.PNG) 
@@ -61,10 +61,10 @@ In this region....
 
 The final product of the batch scripts is the channel network. 
 
-# Here is the channel network of Mt. Kilomanjaro using SRTM data in 2D and 3D:
+# Here is the channel network of Mt. Kilimanjaro using SRTM data in 2D and 3D:
 
 ![SRTM Channel Network 2D](SRTM_Channelnetwork_Closeup.PNG) ![SRTM Channel Netowrk 3D](3D_hill_channelnetwork_SRTM.PNG)
-# Here is the channel network of Mt. Kilomanjaro using ASTER data in 2D and 3D:
+# Here is the channel network of Mt. Kilimanjaro using ASTER data in 2D and 3D:
 
 
 ![ASTER Channel Network 2D](Aster_Channel_Closeup.PNG) ![ASTER Channel Network 3D](3D_hill_channelnetwork_ASTER.PNG) 
