@@ -15,7 +15,7 @@ Here is the data for this lab: [Data](Data_Lab02.md)
 
 # Here is a map displaying the median gross rent of census tracts in El Paso:
 
-![](El_Paso_Median_Gross_Rent.PNGg)
+![](El_Paso_Median_Gross_Rent.PNG)
 
 
 # Here is a map displaying total latino population of census tracts in El Paso:
