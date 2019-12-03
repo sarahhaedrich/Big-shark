@@ -2,7 +2,7 @@
 
 In the first lab, we created a model to calculate direction and distance from a point. I used the Execute SQL function in QGIS to preform the direction and distance functions. I then used the field calculator function to categorize the directions into North, East, South, and West. I then downloaded census data for median gross rent and total latino population for El Paso, Texas. 
 
-Here is the data for this lab: [Data](Data_Lab02)
+Here is the data for this lab: [Data](Data_Lab02.md)
 
 # Here is a screen shot of my working model:
 
