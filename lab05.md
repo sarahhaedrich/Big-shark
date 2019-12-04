@@ -25,9 +25,9 @@ FROM planet_osm_point
 WHERE amenity = 'school'AND st_intersect(planet_osm_polygon.way, planet_osm_point.way)
 
 Followed by: 
-
+```sql
 SELECT * FROM planet_osm_polygon WHERE intersectsPoint = 1
-
+```
 We have selected all the points that intersect with a polygon. We now want to take the remaining polygons, which don't intersect with points, and transform the polygons into points (in other words, find the centroid) and reproject the data into the proper coordinate system. 
 
 Here's the query:
