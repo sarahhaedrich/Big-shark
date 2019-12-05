@@ -51,28 +51,7 @@
         function pop_Subwards_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>District Name</strong><br />' + (feature.properties['district_n'] !== null ? Autolinker.link(String(feature.properties['district_n'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Ward Name</strong><br />' + (feature.properties['ward_name'] !== null ? Autolinker.link(String(feature.properties['ward_name'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Subward Name</strong><br />' + (feature.properties['vil_mtaa_n'] !== null ? Autolinker.link(String(feature.properties['vil_mtaa_n'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>total</strong><br />' + (feature.properties['total'] !== null ? Autolinker.link(String(feature.properties['total'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Ward Name</strong><br />' + (feature.properties['ward'] !== null ? Autolinker.link(String(feature.properties['ward'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>Subward Name</strong><br />' + (feature.properties['subward'] !== null ? Autolinker.link(String(feature.properties['subward'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['subward_nb'] !== null ? Autolinker.link(String(feature.properties['subward_nb'])) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2"><strong>District Name</strong><br />' + (feature.properties['district'] !== null ? Autolinker.link(String(feature.properties['district'])) : '') + '</td>\
+                        <td colspan="2"><strong>Total Population</strong><br />' + (feature.properties['total'] !== null ? Autolinker.link(String(feature.properties['total'])) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <td colspan="2"><strong>Number of Schools</strong><br />' + (feature.properties['numschools'] !== null ? Autolinker.link(String(feature.properties['numschools'])) : '') + '</td>\
@@ -86,13 +65,13 @@
                 return {
                 pane: 'pane_Subwards_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(255,255,255,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 1,
+                fillOpacity: 0.75,
                 fillColor: 'rgba(68,1,84,1.0)',
             }
             }
@@ -100,13 +79,13 @@
                 return {
                 pane: 'pane_Subwards_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(255,255,255,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 1,
+                fillOpacity: 0.75,
                 fillColor: 'rgba(58,82,139,1.0)',
             }
             }
@@ -114,13 +93,13 @@
                 return {
                 pane: 'pane_Subwards_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(255,255,255,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 1,
+                fillOpacity: 0.75,
                 fillColor: 'rgba(32,144,141,1.0)',
             }
             }
@@ -128,13 +107,13 @@
                 return {
                 pane: 'pane_Subwards_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(255,255,255,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 1,
+                fillOpacity: 0.75,
                 fillColor: 'rgba(93,201,98,1.0)',
             }
             }
@@ -142,13 +121,13 @@
                 return {
                 pane: 'pane_Subwards_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(255,255,255,1.0)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
-                fillOpacity: 1,
+                fillOpacity: 0.75,
                 fillColor: 'rgba(253,231,37,1.0)',
             }
             }
@@ -208,7 +187,7 @@
         });
         bounds_group.addLayer(layer_Schools_2);
         var baseMaps = {};
-        L.control.layers(baseMaps,{'<img src="legend/Schools_2.png" /> Schools': layer_Schools_2,'# of Schools by Subwards<br /><table><tr><td style="text-align: center;"><img src="legend/Subwards_1_00000.png" /></td><td>0 - 0</td></tr><tr><td style="text-align: center;"><img src="legend/Subwards_1_00201.png" /></td><td>0 - 2</td></tr><tr><td style="text-align: center;"><img src="legend/Subwards_1_20502.png" /></td><td>2 - 5</td></tr><tr><td style="text-align: center;"><img src="legend/Subwards_1_50903.png" /></td><td>5 - 9</td></tr><tr><td style="text-align: center;"><img src="legend/Subwards_1_901704.png" /></td><td>9 - 17</td></tr></table>': layer_Subwards_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{'<img src="legend/Schools_2.png" /> Schools': layer_Schools_2,'Subwards<br /><table><tr><td style="text-align: center;"><img src="legend/Subwards_1_00000.png" /></td><td>0.0 - 0.0</td></tr><tr><td style="text-align: center;"><img src="legend/Subwards_1_00201.png" /></td><td>0.0 - 2.0</td></tr><tr><td style="text-align: center;"><img src="legend/Subwards_1_20502.png" /></td><td>2.0 - 5.0</td></tr><tr><td style="text-align: center;"><img src="legend/Subwards_1_50903.png" /></td><td>5.0 - 9.0</td></tr><tr><td style="text-align: center;"><img src="legend/Subwards_1_901704.png" /></td><td>9.0 - 17.0</td></tr></table>': layer_Subwards_1,"OSM Standard": layer_OSMStandard_0,},{collapsed:false}).addTo(map);
         setBounds();
 		L.control.scale( {
 		imperial: false,
