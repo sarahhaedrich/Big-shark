@@ -26,9 +26,9 @@ Here is the data for this lab: [Data](Data_Lab02.md)
 
 # Graphs with Data Plotly
 
-[Direction vs. Median Gross Rent on a Scatter Plot](file:///W:/lab01+lab02/dist_mgr.html)
+[Direction vs. Median Gross Rent on a Polar Plot](mgr_dirc.html)
 
-[Distance vs. Median Gross Rent on a Polar Plot](file:///W:/lab01+lab02/mgr_dirc.html)
+[Distance vs. Median Gross Rent on a Scatter Plot](dist_mgr.html)
 
 
 [Back to Main Page](index.md)
