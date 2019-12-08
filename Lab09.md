@@ -7,10 +7,50 @@ To collect our data, we used a code written by our professor, Joe Holler. Profes
 # Common Language
 ![Common language found in Hurricane Dorian Tweets](commonlanguage_dorian.PNG)
 
-# Word Associatoins
+# Word Associations
 
-![Word Associations in Hurricane Dorian Tweets](Word_Network_Dorian.png)
+![Word Associations in Hurricane Dorian Tweets](dorian_word_assocations.PNG)
 
+
+
+After I preformed the textual analysis in R Studio, I uploaded the data to my PostGIS database (the code for this work is attached in the R Script above). I then used SQL theory to preform a spatial analysis on the Twitter data. Here is the SQL code: [Labo9_SQL Code](lab09.sql). The steps are annotated below:
+
+# Step 1
+To preform this analysis, we need to use a projection system accurate across our focus region. We chose USA Continuous Lambert Conformal Conic Projection (SRS code is 102004), and used the PostGIS INSERT statement to load the projection system into our database. To double check if the insert worked, we ran this query:
+
+```sql
+Select * from spatial_ref_sys where srid = 102004
+```
+
+# Step 2
+We then needed to transform our twitter data sets into the USA Continuous Lambert Conformal Conic Projection. We also need to the geometry data contained in the twitter data into point geometries, so we can create a map of the twitter data on QGIS. To preform this step, we used the "AddGeometryColumn" option in SQL theory.
+
+```sql
+SELECT AddGeometryColumn ('public', 'dorian','geom', 102004, 'POINT', 2, false)
+UPDATE dorian
+SET geom = st_transform( st_setsrid( st_makepoint(lng,lat),4326), 102004)
+
+SELECT AddGeometryColumn ('public', 'nomber','geom', 102004, 'POINT', 2, false)
+UPDATE november
+SET geom = st_transform( st_setsrid( st_makepoint(lng,lat),4326), 102004)
+```
+ We transformed the counties data into the USA Continuous Lambert Conformal Conic Projection with this query:
+ ```sql
+ UPDATE counties SET geometry = st_transform(geometry,102004);
+```
+
+# Step 3
+
+Next, we want to select for the United States counties we are interested in and delete the remaining counties. To preform this step, we used this SQL theory:
+
+```sql
+DELETE FROM counties
+WHERE statefp NOT IN ('54', '51', '50', '47', '45', '44', '42', '39', '37',
+'36', '34', '33', '29', '28', '25', '24', '23', '22', '21', '18', '17',
+'13', '12', '11', '10', '09', '05', '01')
+```
+We now have a map that looks like this:
+![Image](Dorian_counties.PNG)
 # Heat Map / Kernel Density Map of Twitter Activity
 
 # Choropleth Map of Tweet Normalized Difference
