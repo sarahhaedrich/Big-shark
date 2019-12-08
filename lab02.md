@@ -23,7 +23,7 @@ Here is the data for this lab: [Data](Data_Lab02.md)
 ![](El_Paso_Median_Gross_Rent.PNG)
 
 
-# Here is a map displaying total latino population of census tracts in El Paso:
+# Here is a map displaying the density of the latino population by census tract in El Paso:
 
 ![](El_Paso_Hispanic.PNG)
 
@@ -31,9 +31,7 @@ Here is the data for this lab: [Data](Data_Lab02.md)
 
 # Graphs with Data Plotly
 
-[Direction vs. Median Gross Rent on a Polar Plot](mgr_dirc.html)
-
-[Distance vs. Median Gross Rent on a Scatter Plot](dist_mgr.html)
+To further explore the relationship between median gross rent relative to distance and direction, I used the Data Plotly plug-in in QGIS. The first graph represents direction versus media gross rent on a [polar plot](mgr_dirc.html) and the second graph representing distance versus median gross rent on a [scatter plot](dist_mgr.html). 
 
 
 [Back to Main Page](index.md)
