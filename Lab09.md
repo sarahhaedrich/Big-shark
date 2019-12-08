@@ -5,11 +5,11 @@ For this lab, we want to explore the twitter activity in response to Hurrican Do
 To collect our data, we used a code written by our professor, Joe Holler. Professor Holler wrote a script in R Studio, which can be downloaded (here)(dorianTwitterScript.R). We used a Twitter API to collect 200,000 tweets from September 11, 2019 containing the words "dorian," "hurricane," or "sharpiegate." We also downloaded a 200,000 tweets from November 19, 2019 as a control to understand the baseline twitter activity in the Eastern United States. I have attached the list of Twitter usernames found in our data: [november data](november.csv) and [dorian data](dorian.csv), but this link does not include the actual tweet content out of respect for the Twitter privacy policy. 
 
 # Common Language
-![Common language found in November Tweets](uniquewordsnovember.png)
+![Common language found in November Tweets](commonlanguage_november.PNG)
 
 
 
-![Common language found in Dorian Tweets](uniquewordsdorian.png)
+![Common language found in Dorian Tweets](commonlanguage_dorian.PNG)
 
 # Word Associatoins
 
