@@ -114,7 +114,7 @@ SET ntdi = (((doriancount - novembercount) *1.000)/((doriancount + novembercount
 WHERE doriancount+novembercount >0
 ```
 # Choropleth Map of Tweet Normalized Difference
-![Image](chloropleth map of nd.PNG)
+![Image](chloroplethnd.PNG)
 
 # Heat Map / Kernel Density Map of Twitter Activity
 
