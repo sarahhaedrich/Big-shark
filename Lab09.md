@@ -113,7 +113,7 @@ UPDATE counties
 SET ntdi = (((doriancount - novembercount) *1.000)/((doriancount + novembercount) *1.000))
 WHERE doriancount+novembercount >0
 ```
-# Choropleth Map of Tweet Normalized Difference
+# Choropleth Map of the Normalized Difference between Dorian and November Tweets
 ![Image](chloroplethnd.PNG)
 
 # Heat Map / Kernel Density Map of Twitter Activity
