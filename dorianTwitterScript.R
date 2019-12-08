@@ -4,6 +4,18 @@
 #install package for twitter and initialize the library
 install.packages("rtweet")
 library(rtweet)
+library(igraph)
+library(dplyr)
+library(tidytext)
+library(tm)
+library(tidyr)
+library(ggraph)
+library(tidycensus)
+library(ggplot2)
+library(RPostgres)
+library(RColorBrewer)
+library(DBI)
+library(rccmisc)
 
 
 ############# SEARCH TWITTER API ############# 
@@ -41,5 +53,123 @@ november <- subset(november, place_type == 'city'| place_type == 'neighborhood'|
 dorian <- lat_lng(dorian,coords=c("bbox_coords"))
 november <- lat_lng(november,coords=c("bbox_coords"))
 
+## Making a copy of data (never manipulate the original data in case we make a mistake!!)
+november.two <- november
+dorian.two <- dorian
 
+## Extracting columns 1 and 2, which contain the uesr_ids and status_ids
+user.november <- november.two[,1:2]
+user.dorian <- dorian.two[,1:2]
+
+## Saving the CSV file to computer, so I can upload data to my Github
+write.csv(user.november, 'november.csv')
+write.csv(user.dorian, 'dorian.csv')
+
+
+############# TEXT / CONTEXTUAL ANALYSIS - HURRICANE DORIAN ############# 
+
+dorian$text <- plain_tweets(dorian$text)
+
+dorianText <- select(dorian ,text)
+dorianWords <- unnest_tokens(dorianText, word, text)
+
+# how many words do you have including the stop words?
+count(dorianWords)
+
+#create list of stop words (useless words) and add "t.co" twitter links to the list
+data("stop_words")
+stop_words <- stop_words %>% add_row(word="t.co",lexicon = "SMART")
+
+dorianWords <- dorianWords %>%
+  anti_join(stop_words) 
+
+# how many words after removing the stop words?
+count(dorianWords)
+
+dorianWords %>%
+  count(word, sort = TRUE) %>%
+  top_n(15) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = word, y = n)) +
+  geom_col() +
+  xlab(NULL) +
+  coord_flip() +
+  labs(x = "Count",
+       y = "Unique Words",
+       title = "Count of unique words found in tweets related to Hurricane Dorian")+
+  theme_classic()
+
+dorianWordPairs <- dorian %>% select(text) %>%
+  mutate(text = removeWords(text, stop_words$word)) %>%
+  unnest_tokens(paired_words, text, token = "ngrams", n = 2)
+
+dorianWordPairs <- separate(dorianWordPairs, paired_words, c("word1", "word2"),sep=" ")
+dorianWordPairs <- dorianWordPairs %>% count(word1, word2, sort=TRUE)
+
+#graph a word cloud with space indicating association. you may change the filter to filter more or less than pairs with 10 instances
+dorianWordPairs %>%
+  filter(n >= 20) %>%
+  graph_from_data_frame() %>%
+  ggraph(layout = "fr") +
+  geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
+  geom_node_point(color = "darkslategray4", size = 3) +
+  geom_node_text(aes(label = name), vjust = 1.8, size = 3) +
+  labs(title = "Word Network: Tweets during the 2019 Hurricane Dorian event",
+       subtitle = "September 2019 - Text mining twitter data ",
+       x = "", y = "") +
+  theme_void()
+
+
+############# TEXT / CONTEXTUAL ANALYSIS NOVEMBER ############# 
+
+november$text <- plain_tweets(november$text)
+
+novemberText <- select(november ,text)
+novemberWords <- unnest_tokens(novemberText, word, text)
+
+# how many words do you have including the stop words?
+count(novemberWords)
+
+#create list of stop words (useless words) and add "t.co" twitter links to the list
+data("stop_words")
+stop_words <- stop_words %>% add_row(word="t.co",lexicon = "SMART")
+
+novemberWords <- novemberWords %>%
+  anti_join(stop_words) 
+
+# how many words after removing the stop words?
+count(novemberWords)
+
+novemberWords %>%
+  count(word, sort = TRUE) %>%
+  top_n(15) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = word, y = n)) +
+  geom_col() +
+  xlab(NULL) +
+  coord_flip() +
+  labs(x = "Count",
+       y = "Unique Words",
+       title = "Count of unique words found in tweets on November 19, 2019")+
+  theme_classic()
+
+novemberWordPairs <- november %>% select(text) %>%
+  mutate(text = removeWords(text, stop_words$word)) %>%
+  unnest_tokens(paired_words, text, token = "ngrams", n = 2)
+
+novemberWordPairs <- separate(novemberWordPairs, paired_words, c("word1", "word2"),sep=" ")
+novemberWordPairs <- novemberWordPairs %>% count(word1, word2, sort=TRUE)
+
+#graph a word cloud with space indicating association. you may change the filter to filter more or less than pairs with 10 instances
+novemberWordPairs %>%
+  filter(n >= 20) %>%
+  graph_from_data_frame() %>%
+  ggraph(layout = "fr") +
+  geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
+  geom_node_point(color = "darkslategray4", size = 3) +
+  geom_node_text(aes(label = name), vjust = 1.8, size = 3) +
+  labs(title = "Word Network: Tweets from November 19, 2019",
+       subtitle = "November 2019 - Text mining twitter data ",
+       x = "", y = "") +
+  theme_void()
 
