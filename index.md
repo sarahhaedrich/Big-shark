@@ -1,6 +1,8 @@
-[My Blog Post](blogpost1.md)
+# Sarah Haedrich - GitHub Homepage
 
-My name is Sarah Haedrich, and I'm currently a student at Middlebury College graduating in February of 2020. I'm majoring in environmental studies and geography. For my last geography class, I chose to learn about OpenSource GIS softwares in GEOG323 with Professor Joe Holler. Over the course of the semester, we worked with QGIS, R Studio, SAGA, and PostgreSQL among other softwares. This blog showcases my work in the course, broken down by lab exercises.   
+My name is Sarah Haedrich, and I'm currently a student at Middlebury College graduating in February of 2020. I'm majoring in environmental studies and geography. For my last geography class, I chose to learn about OpenSource GIS softwares in GEOG323 with Professor Joe Holler. Over the course of the semester, we worked with QGIS, R Studio, SAGA, and PostgreSQL among other softwares. This blog showcases my work in the course, broken down by lab exercises. 
+
+[My Blog Post](blogpost1.md)
 
 [Lab 01 & Lab02: QGIS Direction and Distance Model](lab02.md)
 In lab 2, we worked in QGIS to create a model to calculate the direction and distance from polygons to a point. I used the model I created to look at median gross rent in comparison to distance and direction in El Paso Texas.
