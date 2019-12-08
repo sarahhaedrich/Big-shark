@@ -23,7 +23,7 @@ Select * from spatial_ref_sys where srid = 102004
 ```
 
 # Step 2
-We then needed to transform our twitter data sets into the USA Continuous Lambert Conformal Conic Projection. We also need to the geometry data contained in the twitter data into point geometries, so we can create a map of the twitter data on QGIS. To preform this step, we used the "AddGeometryColumn" option in SQL theory.
+We then needed to transform our twitter data sets into the USA Continuous Lambert Conformal Conic Projection. We also want add point geometries to the twitter data sets. To preform this step, we used the "AddGeometryColumn" option in SQL theory.
 
 ```sql
 SELECT AddGeometryColumn ('public', 'dorian','geom', 102004, 'POINT', 2, false)
@@ -51,6 +51,49 @@ WHERE statefp NOT IN ('54', '51', '50', '47', '45', '44', '42', '39', '37',
 ```
 We now have a map that looks like this:
 ![Image](Dorian_counties.PNG)
+
+# Step 4
+
+We now want to assign each twitter data point the corresponding county geoid. To preform this step, we will first add a text column of length 5 to the twitter data sets, and set the new column equal to the geoid of the county the twitter data intersects with. We will use the "st_intersect" function to preform this step. Below is the query:
+
+```sql
+UPDATE dorian
+SET geoid = (SELECT GEOID from counties
+WHERE st_intersects(geom, counties.geometry))
+
+UPDATE november
+SET geoid = (SELECT GEOID from counties
+WHERE st_intersects(geom, counties.geometry))
+```
+ # Step 5
+ ```sql
+ ALTER TABLE counties
+ADD COLUMN novembercount integer 
+
+ALTER TABLE counties
+ADD COLUMN doriancount integer 
+
+/* Set the column equal to 0 (in order to avoid any "NULL" data) */
+UPDATE counties
+SET novembercount = 0 
+
+UPDATE counties
+SET doriancount = 0
+
+/* Group by county and count the number of tweets per county */
+UPDATE counties
+SET novembercount = (SELECT COUNT(status_id)
+FROM november
+WHERE st_intersects(counties.geometry, november.geom)
+GROUP BY geoid) 
+
+UPDATE counties
+SET doriancount = (SELECT COUNT(status_id)
+FROM dorian
+WHERE st_intersects(counties.geometry, dorian.geom)
+GROUP BY geoid)
+```
+
 # Heat Map / Kernel Density Map of Twitter Activity
 
 # Choropleth Map of Tweet Normalized Difference
