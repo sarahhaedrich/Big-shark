@@ -66,21 +66,21 @@ SET geoid = (SELECT GEOID from counties
 WHERE st_intersects(geom, counties.geometry))
 ```
  # Step 5
+ Next, we want to count up the number of tweets per county. We add two new columns to the counties data set - one column will contain the number of november tweets per county and the other column will contain the number of dorian tweets per county. We use "Add Column" for this proecess. We then update the table and set the new column values equal to "0" to avoid null values in our data set. We then use "Group By" and "st_intersects" to count up the number of tweets per county. Below is the query for this step 5: 
+
  ```sql
- ALTER TABLE counties
+ALTER TABLE counties
 ADD COLUMN novembercount integer 
 
 ALTER TABLE counties
 ADD COLUMN doriancount integer 
 
-/* Set the column equal to 0 (in order to avoid any "NULL" data) */
 UPDATE counties
 SET novembercount = 0 
 
 UPDATE counties
 SET doriancount = 0
 
-/* Group by county and count the number of tweets per county */
 UPDATE counties
 SET novembercount = (SELECT COUNT(status_id)
 FROM november
@@ -94,7 +94,35 @@ WHERE st_intersects(counties.geometry, dorian.geom)
 GROUP BY geoid)
 ```
 
+# Step 6
+We now want to calculate the number of tweets per 10,000 people in each county. This will be our twitter rate. 
+```sql
+ALTER TABLE counties
+ADD COLUMN tweetrate real 
+ 
+UPDATE counties
+SET tweetrate = ((doriancount/"POP")*10000*1.0000)
+```
+
+Finally, we will calculate the normalized difference value for each county using the following query:
+```sql
+ALTER TABLE counties 
+ADD COLUMN ntdi real 
+
+UPDATE counties
+SET ntdi = (((doriancount - novembercount) *1.000)/((doriancount + novembercount) *1.000))
+WHERE doriancount+novembercount >0
+```
+# Choropleth Map of Tweet Normalized Difference
+![Image](chloropleth map of nd.PNG)
+
 # Heat Map / Kernel Density Map of Twitter Activity
 
-# Choropleth Map of Tweet Normalized Difference
+To make a kernal density map of the twitter data, we first find the centroid of the counties data set with the following query:
+```sql
+CREATE TABLE centroids
+SELECT *, st_centroid(geometry)
+FROM counties
+```
+
 
