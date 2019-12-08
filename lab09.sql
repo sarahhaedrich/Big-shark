@@ -69,6 +69,14 @@ SET tweetrate = ((doriancount/"POP")*10000*1.0000)
 
 /* Add new column of data type "real" */
 ALTER TABLE counties
+ADD COLUMN tweetrate real 
+
+/* Calculate the number of tweets per 10,000 people per county */ 
+UPDATE counties
+SET tweetrate = ((doriancount/"POP")*10000*1.0000)ALTER TABLE counties
+
+/* Add new column of data type "real */
+ALTER TABLE counties 
 ADD COLUMN ntdi real 
 
 /* Find the normalized difference between dorian tweets and november tweets */
