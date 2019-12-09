@@ -120,9 +120,21 @@ WHERE doriancount+novembercount >0
 
 To make a kernal density map of the twitter data, we first find the centroid of the counties data set with the following query:
 ```sql
-CREATE TABLE centroids
-SELECT *, st_centroid(geometry)
+CREATE TABLE centroids AS
+SELECT *, st_centroid(counties.geometry)
+AS centroidscounty
 FROM counties
 ```
+
+After finding the centroids for each of the counties, I ran the "Heatmap(Kernel Density Estimation)" Algorithm in QGIS with the radius set to 100 km, the pixel size at 500, and the weight set to the tweeter rate column. Below is the result:
+
+
+
+![Image](Heat(KernalDensityEstimation).PNG)
+
+
+
+
+
 
 
