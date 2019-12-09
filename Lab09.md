@@ -2,10 +2,10 @@
 
 For this lab, we want to explore the twitter activity in response to Hurrican Dorian, looking at both the real path of the hurricane and the path defined by President Trump. Our research question was: Is there a difference in twitter activity regarding Hurricane Dorian in the actual hurricane path or the path outlined by President Trump (commonly referred to ask "sharpiegate")?
 
-This is a photo showing President Trump's map of Hurricane Dorian. The yellow arrow points to the added sharpie mark to Hurricane Dorian's path. 
+This is a photo showing President Trump's map of Hurricane Dorian from [Reuters](reuters.com/article/us-sstorm-dorian-trump/sharpie-gate-continued-trump-doubles-down-on-dorians-aim-for-alabama-idUSKCN1VR027). The yellow arrow points to the added sharpie mark to Hurricane Dorian's path. 
 ![Image](s3.reutersmedia.jpeg)
 
-This is a photo from NOAA showing the actual path of Hurricane Dorian. 
+This is a photo from NOAA showing the actual path of Hurricane Dorian downloaded from the [Port City Daily](https://portcitydaily.com/local-news/2019/09/01/hurricane-dorian-continues-its-track-with-models-showing-potential-impact-to-the-carolinas/). 
 ![Image](Screen-Shot-2019-09-01-at-6.54.58-AM.png)
 
 To collect our data, we used a code written by our professor, Joe Holler. Professor Holler wrote a script in R Studio, which can be downloaded [here](Lab09_RScript_Final.R). The script is divided into three sections labeled clearly within the R Studio script. The first section contains the code used to gather the Twitter data. The second section contains the code to upload the twitter data to our PostGIS database. The third section contains the code used for the textual analysis in R Studio, specifically code to find the common language and word associations in tweets. We used a Twitter API to collect 200,000 tweets from September 11, 2019 containing the words "dorian," "hurricane," or "sharpiegate." We also downloaded 200,000 tweets from November 19, 2019 as a control to understand the baseline twitter activity in the Eastern United States. I have attached the list of Twitter usernames found in our data: [november data](november.csv) and [dorian data](dorian.csv), but this link does not include the actual tweet content out of respect for the Twitter privacy policy. 
@@ -119,8 +119,16 @@ UPDATE counties
 SET ntdi = (((doriancount - novembercount) *1.000)/((doriancount + novembercount) *1.000))
 WHERE doriancount+novembercount >0
 ```
+
 # Choropleth Map of the Normalized Difference between Dorian and November Tweets
 ![Image](chloroplethnd.PNG)
+
+# Visualizing the Results
+
+To visualize our results, we used the software GeoDa. After connecting to my PostGIS database, I created a Weight Manager and set the weights field id variable equal to the geoid from the counties layer. I created a local G* cluster map and set the variable equal to the calculated tweet rate column. 
+![Image](geoda_tweetrate.PNG)
+
+![Image](geoda_significance.PNG)
 
 # Heat Map / Kernel Density Map of Twitter Activity
 
@@ -133,8 +141,6 @@ FROM counties
 ```
 
 After finding the centroids for each of the counties, I ran the "Heatmap(Kernel Density Estimation)" Algorithm in QGIS with the radius set to 100 km, the pixel size at 500, and the weight set to the tweeter rate column. Below is the result:
-
-
 
 ![Image](Heat(KernalDensityEstimation).PNG)
 
