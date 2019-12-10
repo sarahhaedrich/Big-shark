@@ -132,7 +132,7 @@ GROUP BY ward
 
 Since we couldn't carry over the geometry while using the "GROUP BY" function, we needed to join the geometry data to the table we just made, making sure to add a new column before we do so. After we made the new column, we added the geometry data to the schoolWard table, and then used "COUNT" to count the number of schools within each SchoolWard. 
 
-After this final step in our SQL query, we then presented our findings as a leaflet file. In the interactive version of the map, you are able to see number of schools per ward and total population per ward. For reference, I've attached a [map](Map-2-Population-Density-in-Dar-es-Salaam-with-high-density-around-the-city-center.png)from [Research Gate](https://www.researchgate.net/figure/Map-2-Population-Density-in-Dar-es-Salaam-with-high-density-around-the-city-center_fig13_285847124) showing the population density in Dar es Salaam. Below is a screen shot of our final map:
+After this final step in our SQL query, we then presented our findings as a leaflet file. In the interactive version of the map, you are able to see number of schools per ward and total population per ward. For reference, I've attached a [map](Map-2-Population-Density-in-Dar-es-Salaam-with-high-density-around-the-city-center.png) from [Research Gate](https://www.researchgate.net/figure/Map-2-Population-Density-in-Dar-es-Salaam-with-high-density-around-the-city-center_fig13_285847124) showing the population density in Dar es Salaam. Below is a screen shot of our final map:
 
 ![Image](Schoolscreenshot.png)
 
