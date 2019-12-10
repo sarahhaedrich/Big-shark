@@ -1,13 +1,16 @@
 ## Lab 3
 
-After downloading the data for Mt. Kilimanjaro from Earthdata Search, I had two tiles, with each tile covering a 1 degree by 1 degree area. I then knitted these two tiles together using the "Mosaicking Tool."
+After downloading the data for Mt. Kilimanjaro from [Earthdata Search](https://earthdata.nasa.gov/). I decided to use [SRTM data](https://doi.org/10.5067/MEaSUREs/SRTM/SRTMGL1.003) for this lab. To download the data, I went to Earthdata Search and searched for "NASA Shuttle Radar Topogrpahy Mission Global 1 arc second Voo3). I zoomed in to Mt. Kilimanjaro, and downloaded two tiles containing Mt. Kilimanjaro and the surrounding area. The two tiles each cover a 1 degree by 1 degree area and are named by the lower left coordinates: S03E037 and S04E037. 
+
+# SAGA
+
+Using the open source software of SAGA, I then knitted these two tiles together using the "Mosaicking Tool."
 
 ![Mosaic](Mosaic_Image.png)
 
 I now have a map containing a digital elevation model (DEM) of Mt. Kilimanjaro. Before analysing the DEM, I first projected the recently mosaicked map into the UTM projection (Universal Transverse Mercator projection) from a geographic coordinate system so that we can accurately analyze linear measurements. I then used the analyze hillshade tool to display the amount of light, or lack of light, that Mt. Kilimanjaro receives when the sun is set at a specified azimuth angle and height. In this image, the azimuth is set at 315, and the height is set at 45 degrees.
 
 ![Hillshade](Hillshade_Image.png)
-
 
 
 The next analysis I used was the Sink Drainage Route Dectection tool. This tool creates a grid showing which direction water will flow in each cell, including no flow. Determining the "no flow" areas are helpful in order to eliminate areas with no data or areas that act as sink holes for water. 
