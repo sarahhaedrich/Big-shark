@@ -4,15 +4,18 @@
 
 
 
-In lab 5, I worked with [Marco van Germenen](https://marcovg.github.io/) to develop and execute a vulnerability analysis. The goal of this lab was to design and preform a vulnerability analysis which would be accessible and replicable to anyone. 
+In lab 5, I worked with [Marco van Germenen](https://marcovg.github.io/) to develop and execute a vulnerability analysis using our skills in SQL and data from [Open Street Map](https://www.openstreetmap.org/). The goal of this lab was to design and preform a vulnerability analysis which would be accessible and replicable to the public. We chose Dar es Saalam as our focus region since the city is one of the most mapped locations on Open Street Map with special thanks to the [Tanzania Resilience Academy](https://resilienceacademy.ac.tz/). 
 
-I used data from the [Tanzania Resilience Academy](https://resilienceacademy.ac.tz/) and [Open Street Map](https://www.openstreetmap.org/) to display the number of schools per ward in Dar Es Salaam, Tanzania. 
+For our vulnerability analysis, Marco and I chose to calculate the number of schools per ward in Dar es Saalam in hopes to understand how educational resources are distributed around the region. Wards with a lower number of schools may indicate areas with less access to resources, an indicator of vulnerabilty. Wards with a higher number of schools may indicate neighborhoods with more access to resources. This is a spatial analysis since we are focusing on 
+
 
 
 
 The concept of counting the number of schools per ward seems simple, but ran into some unexpected problems. Therefore, I have outlined our process below. Our final leaflet map is attached [here](dsmmap).
 
 ---------------------------------------------------------------------------------------------------------------
+
+Our data from this lab was downloaded from [Tanzania Resilience Academy](https://resilienceacademy.ac.tz/) and [Open Street Map](https://www.openstreetmap.org/). 
 
 The first step involves downlaoding data from [open street map](https://www.openstreetmap.org/) into QGIS. We used these [files] written by our professor, Joe Holler, and proceeded to preform the following steps:
 1. Download Open Street Map data by going to [open street map](https://www.openstreetmap.org/) and zooming to the desired    extent. Click "Overpass API" and save the file as a ".osm" file. 
