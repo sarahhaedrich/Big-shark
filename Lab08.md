@@ -1,10 +1,10 @@
 # Lab 07 & Lab 08: Malawi Vulnerability Assessment: Looking at Reproducibility and Replicability
 
 
-The goals of this lab are to test the reproducability of a multi-criteria analysis of vulnerability in Malawi based off the paper by [Malcolm, D.W., E.A. Weaver, and A. R. Krakowka, 2014](Vulnerability modeling for sub-Saharan Africa An operationalized approach in Malawi.pdf).
+The goals of this lab are to test the reproducability of a multi-criteria analysis of vulnerability in Malawi based off the paper by [Malcolm, Weaver, and Krakowka, 2014](VulnerabilityMalcolm.pdf).
 
-We hope to replicate ![Figure 4](Figure4.png) and 80% of ![Figure 5](Figure5.png) since we are unable to access 20% of the data used for this map in our time span. 
-
+We hope to replicate Figure 4 and 80% of Figure 5 since we are unable to access 20% of the data used for this map in our time span. 
+![Figure 4](Figure4.png)![Figure 5](Figure5.png)
 
 # Data
 The data for this lab is attached [here](mwi_data.zip).
