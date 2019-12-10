@@ -1,7 +1,7 @@
 ## Lab 04
 
 
-In Lab 4, I used batch script files in Notepadd++ to preform the same hydrological analysis as Lab 3. To start, I downloaded the DEM files and the NUM files for both SRTM data and ASTER data [here](https://earthdata.nasa.gov/). The DEM file (Digital Elevation Model) contains elevation data in a raster layer. The NUM files contains the source of each data point in the DEM file, also displayed as a raster layer (for example, the orange areas in the SRTM NUM file represents DEM data sourced from ASTER data). 
+In Lab 4, I used batch script files in Notepadd++ to preform the same hydrological analysis as Lab 3. To start, I downloaded the DEM files and the NUM files for both [SRTM data](https://doi.org/10.5067/MEaSUREs/SRTM/SRTMGL1.003) and [ASTER data](https://doi.org/10.5067/ASTER/ASTGTM.003) from [EarthData Search](https://earthdata.nasa.gov/). The DEM file (Digital Elevation Model) contains elevation data in a raster layer. The NUM files contains the source of each data point in the DEM file, also displayed as a raster layer (for example, the orange areas in the SRTM NUM file represents DEM data sourced from ASTER data). 
 
 The prilimiary steps in the hydrological analysis were to mosaick the two tiles together into one grid, and then reproject the mosaicked grid into the UTM projection. I used a batch script to preform these functions. I then opened the files in Sage version 6.2 so I could visualize and further analyze the data.
 
@@ -28,7 +28,7 @@ After reprojecting the data, we are able to look at the difference in elevation 
 
 # Here is the SRTM data subtracted from the ASTER Data:
 
-![(ASTER DEM) - (SRTM DEM)](Difference(ASTER_SRTM).png) ![](Difference(ASTER_SRTM)_legend.png)
+![(ASTER DEM) - (SRTM DEM)](New_Diff_Color.PNG) 
 
 
 After the preliminary steps, I preformed a hillshade analysis using the [hillshade batch script](Hillshade.bat). To help visualize the findings, I zoomed in on the map on a focus region on the Western side of the mountain. 
@@ -71,8 +71,13 @@ The final product of the batch scripts is the channel network.
 
 
 
+Citations:
 
-
-
+Data:
+• NASA/METI/AIST/Japan Spacesystems, and U.S./Japan ASTER Science Team. ASTER Global Digital Elevation
+Model V003. 2019, distributed by NASA EOSDIS Land Processes DAAC,
+https://doi.org/10.5067/ASTER/ASTGTM.003.
+• NASA JPL. NASA Shuttle Radar Topography Mission Global 1 arc second. 2013, distributed by NASA EOSDIS
+Land Processes DAAC, https://doi.org/10.5067/MEaSUREs/SRTM/SRTMGL1.003.
 
 
