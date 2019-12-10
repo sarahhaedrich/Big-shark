@@ -132,8 +132,11 @@ We take the normalized difference in order to compare two nominal values (dorian
 
 # Visualizing the Results
 
-To visualize our results, we used the software GeoDa. After connecting to my PostGIS database, I created a Weight Manager and set the weights field id variable equal to the geoid from the counties layer. I created a local G* cluster map and set the variable equal to the calculated tweet rate column. 
+To visualize our results, we used the software GeoDa. After connecting to my PostGIS database, I created a Weight Manager and set the weights field id variable equal to the geoid from the counties layer. I created a local G* cluster map and set the variable equal to the calculated tweet rate column. The red and blue map represents the tweet rate throughout the Eastern United States during Hurrricane Dorian. The red represents areas in which twitter activity level concerning Hurricane Dorian increased, and the blue represents areas in which the twitter activity level decreased during Hurricane Dorian. Unsurprisingly, the red areas are concentrated along the Eastern coast of the United States, including North Carolina, South Carolina, and pockets of Virginia, which are also the states that the storm was both predicted and indeed hit. 
+
 ![Image](geoda_tweetrate.PNG)
+
+The green map represents the statistical significance for each county colored by the corresponding p-value. If we only wanted to measure the statistical signficance with a p-value of .001, then far fewer counties would be considered significant. However, the coastal regions North Carolina and Virginia, just below Washinton D.C. woudl still have a significant increase in twitter activity. Also, areas in the midwest would still have a significant decrease in twitter activity, which is an unexplained phenomena. 
 
 ![Image](geoda_significance.PNG)
 
@@ -146,14 +149,13 @@ SELECT *, st_centroid(counties.geometry)
 AS centroidscounty
 FROM counties
 ```
-
-After finding the centroids for each of the counties, I ran the "Heatmap(Kernel Density Estimation)" Algorithm in QGIS with the radius set to 100 km, the pixel size at 500, and the weight set to the tweeter rate column. Below is the result:
+After finding the centroids for each of the counties, I ran the "Heatmap(Kernel Density Estimation)" Algorithm in QGIS with the radius set to 100 km, the pixel size at 500, and the weight set to the tweeter rate column. Interpreting the map below, we see that tweeter activity concerning Hurricane Dorian is largely concentrated on the coasts of South Carolina, Norht Carolina, and Virgina, which corresponds with the actualized path of Hurricane Dorian. 
 
 ![Image](Heat(KernalDensityEstimation).PNG)
 
 # Conclusion and Discussion
 
-Twitter Conclusion
+Conclusion: In the textual analysis, we found that Trump had influenced the content of the tweets concerning Hurricane Dorian, as highlighted in the word count. Although, there were still tweets containing information more closely related to the actual natural diaster and the alarming effects, as we found with the word associations. In the spatial analysis, we found that Trump's sharpiegate incident did not increase the twitter activity in Alabama. In the normalized difference map, the twitter rate map, and the kernel density map, the twitter activity level concerning Hurricane Dorian increased significantly in the coastal regions in North Carolina, South Carolina, Virgina, Florida, and Georgia. This region corresponds with the actual path of Hurricane Dorian.
 
 Discussion: The concept of using Twitter data to preform a textual and spatial analysis is both interesting and exciting. Moreover, this type of analysis is accessible to the public (after creating a Twitter Developer account). While exciting, we must reflect and be critical of this type of analysis in order to uphold the integrity of our work. The Twitter data we collected was onlyt geocoded if the user agreed to let Twitter access the user's location or if the user chose to disclose their neighborhood, city, county, state, or county on their personal twitter account. Therefore, there is potential error in self-identified locations by users, otherwise referred to as Voluntary Geographic Information [Elwood, Goodchild, and Sui](Researching Volunteered Geographic Information Spatial Data , Geographic Research , and New Social Practice Researching Volunteered Geo.pdf). This concept of Voluntary Geographic Information (VGI) ties into a larger discussion on what it means to use this type of information, how it should be used, and who should use it. As mentioned, this type of information is accessible to the public, which is increasing the number of individuals able and interested in preforming a spatial analysis using volunteered geographic information. While this is exciting to bring support and interest into the field of geogrpahy, this also means many invidiuals with no background in geographic theory may become engaged with spatial analyses. As Elwood et al. points out, inadequate understanding of geographic theory and principle can lead to major international problems. This discussion about who can use the volunteered geographic theory and how also ties into the discussion from lab 2 regarding GIS as a tool rather GIS as a science. In both topics, we consider what it means to "do geography" by using GIS or using VGI without knowledge in geographic theory and practice. 
 
