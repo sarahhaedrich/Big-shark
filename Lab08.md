@@ -6,7 +6,8 @@ The goals of this lab are to test the reproducability of a multi-criteria analys
 We hope to replicate Figure 4 and 80% of Figure 5 since we are unable to access 20% of the data used for this map in our time span. 
 
 
-![Figure 4](Figure4.png)[Figure 5](Figure5.png)
+![Figure 4](Figure4.png)
+![Figure 5](Figure5.png)
 
 # Data
 The data for this lab is attached [here](mwi_data.zip).
