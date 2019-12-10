@@ -132,9 +132,15 @@ GROUP BY ward
 
 Since we couldn't carry over the geometry while using the "GROUP BY" function, we needed to join the geometry data to the table we just made, making sure to add a new column before we do so. After we made the new column, we added the geometry data to the schoolWard table, and then used "COUNT" to count the number of schools within each SchoolWard. 
 
-After this final step in our SQL query, we then presented our findings as a leaflet file, attached above.
+After this final step in our SQL query, we then presented our findings as a leaflet file. In the interactive version of the map, you are able to see number of schools per ward and total population per ward. Below is a map from [Research Gate](https://www.researchgate.net/figure/Map-2-Population-Density-in-Dar-es-Salaam-with-high-density-around-the-city-center_fig13_285847124) showing the population density in Dar es Salaam and a screen shot of our final map:
+
+![Image](Map-2-Population-Density-in-Dar-es-Salaam-with-high-density-around-the-city-center.png)
+
+![Image](Schoolscreenshot.png)
 
 # Conclusion and Discussion
 
+The majority of schools are largely concentrated in the center of the city. The concentration of school intersects with the areas of Dar es Salaam with a high population density, which is an unsurprising phenomenon. As we move away from the city center, the number of schools decrease, which correlates with a population density decrease as well. However, in the far north, west, and south sections of Dar es Saalam, there are essentially none. This may indicate little access to educational resources, but also could be partially due to informal settlements and unreported school locations. 
 
+As a side note, it's interesting that as we move away from the city center, school number per ward decreases. This phenomenom reminds me of the work we did in Lab 01 & Lab 02 looking at median gross rent in relation to the distance from the city center. Perhaps there is an opportunity here to use our model from Lab 01 & Lab 02 to understand how school number per ward changes in relation to distance from the city center. 
 
