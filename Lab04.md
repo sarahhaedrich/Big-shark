@@ -3,6 +3,8 @@
 
 In Lab 4, I used batch script files in Notepadd++ to preform the same hydrological analysis as Lab 3. To start, I downloaded the DEM files and the NUM files for both [SRTM data](https://doi.org/10.5067/MEaSUREs/SRTM/SRTMGL1.003) and [ASTER data](https://doi.org/10.5067/ASTER/ASTGTM.003) from [EarthData Search](https://earthdata.nasa.gov/). The DEM file (Digital Elevation Model) contains elevation data in a raster layer. The NUM files contains the source of each data point in the DEM file, also displayed as a raster layer (for example, the orange areas in the SRTM NUM file represents DEM data sourced from ASTER data). 
 
+ For a more detailed account of how I downloaded the data, please see the first paragraph of my [Lab 03 Documentation](Lab03.md)
+
 The prilimiary steps in the hydrological analysis were to mosaick the two tiles together into one grid, and then reproject the mosaicked grid into the UTM projection. I used a batch script to preform these functions. I then opened the files in Sage version 6.2 so I could visualize and further analyze the data.
 
 # Here are the SRTM DEM Files:
@@ -74,10 +76,10 @@ The final product of the batch scripts is the channel network.
 Citations:
 
 Data:
-• NASA/METI/AIST/Japan Spacesystems, and U.S./Japan ASTER Science Team. ASTER Global Digital Elevation
+NASA/METI/AIST/Japan Spacesystems, and U.S./Japan ASTER Science Team. ASTER Global Digital Elevation
 Model V003. 2019, distributed by NASA EOSDIS Land Processes DAAC,
 https://doi.org/10.5067/ASTER/ASTGTM.003.
-• NASA JPL. NASA Shuttle Radar Topography Mission Global 1 arc second. 2013, distributed by NASA EOSDIS
+NASA JPL. NASA Shuttle Radar Topography Mission Global 1 arc second. 2013, distributed by NASA EOSDIS
 Land Processes DAAC, https://doi.org/10.5067/MEaSUREs/SRTM/SRTMGL1.003.
 
 
