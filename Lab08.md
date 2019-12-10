@@ -42,7 +42,8 @@ Below is the resulting map:
 
 # Replicating Figure 5
 
-Unfortunately, we were unable to find the FEWSnet Livelihood data. Therefore, we are only able to create 80% of Malcomb's final vulnerability criteria....
+Unfortunately, we were unable to find the FEWSnet Livelihood data. Therefore, we are only able to create 80% of Malcomb's final vulnerability criteria from the adaptive capacity scores calculated from the DHS surveys (40%) and the physical exposure from the UNEP Global Risk. 
+
 Replicate 80% of Figure 5 - we are unable to access 20% of the data used for this map in our time span. We hope to replicate what we can given the accessible data. 
 ![Figure 5](Figure5.png)
 
