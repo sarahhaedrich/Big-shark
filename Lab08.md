@@ -6,40 +6,46 @@ The goals of this lab are to test the reproducability of a multi-criteria analys
 # Data
 
 Demographic Health Surveys - conducted by the U.S. Agency for International Development (USAID) from 2004-2010
+
 DHS Cluter Points
-Traditional Authority Tracts
+
 Flood Risk and Exposure to Drought from the UNEP Global Risk
-GADM Malawi boundaries 
-FEWSnet Livelihood Zones
 
-# Goals
+FEWSnet Livelihood Data - 2005
 
-![Figure 4](Figure4.png)
-
-Figure 4 shows the average resilience score in the traditional authorities. The first Figure 4 shows data from 2004, and the second Figure 4 shows data from 2010. These average resilience scores were calculated by assigning each category from the DHS surveys a value, 1 through 5. The scores were then aggregated with the flood risk and drought risk data downloaded from the UNEP Global Risk data and weighted according to the following figure:
-
-![Image](MalcolmMethod.png)
-
-
-Replicate 80% of Figure 5 - we are unable to access 20% of the data used for this map in our time span. We hope to replicate what we can given the accessible data. 
-![Figure 5](Figure5.png)
-
-
-# Malcolm et. al's Methodolgy
+# Goals 
 
 In order to conceptalize Malcomb et al.'s method, we sketched a workflow in class. Below is an image of the workflow:
 ![Image](MalcombMCE.jpeg)
 
 
+# Replicating Figure 4
+Our goal for this lab was to recreate Figure 4, which shows the average resilience score in the traditional authorities. The first Figure 4 shows data from 2004, and the second Figure 4 shows data from 2010. 
 
-# Our attempt to reproduce Figure 4
+![Figure 4](Figure4.png)
 
-The DHS surveys are available to people after an application process. Our professor, Joe Holler, received the DHS survey data, however, due to due to the privacy regulations around the data, the students were not able to work with the data. However, each student in the class was assigned a variable from the table above to write an SQL code to classify the DHS survey data into quantiles. Professor Holler then accumulated our work into this [SQL code](vulnerabilitySQL (1).sql). This SQL file will, in theory, produce a figure that resembles Figure 4. in Malcolm, et al.'s vulnerability analysis.
+The first step in Malcomb's multi-criteria vulnerability analysis was to calculate the "adaptative capacity" score, which will account for 40% of the Household Resilience score in the final calculation. The adaptative capacity score is a combination of assets and access in each household, and was calculated using the data from the DHS surveys. For each category in the DHS survey, the data was assigned a value of 1 through 5. The values were weighted according to the following figure:
+![Image](Adaptativecapacity.png)
 
+The DHS surveys are only available to people after an application process. Our professor, Joe Holler, applied and received the DHS survey data, however, due to due to the privacy regulations around the data, we were not able to work directly with the data. However, each student in the class was assigned a variable from the figure above to write an SQL code to classify the DHS survey data into quantiles. Professor Holler then accumulated our work into this [SQL code](vulnerabilitySQL (1).sql). This SQL file will, in theory, produce a figure that resembles Figure 4. in Malcolm, et al.'s vulnerability analysis.
+
+Here is a sample of our sql code:
+```sql
+ALTER TABLE dhshh ADD COLUMN orphans REAL;
+UPDATE dhshh set orphans=pctr from
+(SELECT hhid as shhid, percent_rank() OVER(ORDER BY hv251 desc) * 4 + 1 as pctr FROM dhshh ) as subq
+where hhid=shhid;
+```
+
+Below is the resulting map:
 ![](Figure5_smallercellsize.PNG)
 
+# Replicating Figure 5
 
-# Our attempt to reproduce Figure 5
+Unfortunately, we were unable to find the FEWSnet Livelihood data. Therefore, we are only able to create 80% of Malcomb's final vulnerability criteria....
+Replicate 80% of Figure 5 - we are unable to access 20% of the data used for this map in our time span. We hope to replicate what we can given the accessible data. 
+![Figure 5](Figure5.png)
+
 
 To reproduce Figure 5 in which Malcolm et al. produced a map of vunerability to climate change, we used this [model](vulnerability.model3) to calculate vulnerability created by our professor, Joe Holler. 
 
