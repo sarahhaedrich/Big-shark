@@ -17,6 +17,10 @@ Here is a map displaying the distance of El Paso census tracts from a point repr
 
 # Cardinal Direction
 
+Here is a map displaying the cardinal directions of El Paso census tracts from a point representing the Central Business District:
+
+![](Cat_Dirc.PNG)
+
 # Median Gross Rent
 Here is a map displaying the median gross rent of census tracts in El Paso:
 
