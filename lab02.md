@@ -8,7 +8,7 @@ The initial goal of this lab was to allow a user to input the central business d
 # QGIS Model
 Here is a screen shot of my working model:
 
-![](Model_Lab02.PNG)
+![](lab02_model_screenshot.PNG)
 
 # Distance
 Here is a map displaying the distance of El Paso census tracts from a point representing the Central Business District (for this lab, I used an arbitrary point):
