@@ -19,3 +19,5 @@ In lab 5 and 6, we designed a vulnerability analysis in analyze Dar es Saalam, T
 [Lab 07 & Lab08: Investigating Reproducibility and Replicability through Vulnerability Analysis in Malawi]()
 
 [Lab09 & Lab10: Twitter Analysis in R Studio](Lab09.md)
+
+[Twitter Article Review](twitter.md)
