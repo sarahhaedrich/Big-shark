@@ -4,11 +4,9 @@
 
 
 
-In lab 5, I worked with [Marco van Germenen](https://marcovg.github.io/) to develop and execute a vulnerability analysis using our skills in SQL and data from [Open Street Map](https://www.openstreetmap.org/). The goal of this lab was to design and preform a vulnerability analysis which would be accessible and replicable to the public. We chose Dar es Saalam as our focus region since the city is one of the most mapped locations on Open Street Map with special thanks to the [Tanzania Resilience Academy](https://resilienceacademy.ac.tz/). 
+In lab 5, I worked with [Marco van Germenen](https://marcovg.github.io/) to develop and execute a vulnerability analysis using our skills in SQL and data from [Open Street Map](https://www.openstreetmap.org/). The goal of this lab was to design and preform a vulnerability analysis which would be accessible and replicable to the public. We chose Dar es Salaam as our focus region since the city is one of the most mapped locations on Open Street Map with special thanks to the [Tanzania Resilience Academy](https://resilienceacademy.ac.tz/). 
 
-For our vulnerability analysis, Marco and I chose to calculate the number of schools per ward in Dar es Saalam in hopes to understand how educational resources are distributed around the region. Wards with a lower number of schools may indicate areas with less access to resources, an indicator of vulnerabilty. Wards with a higher number of schools may indicate neighborhoods with more access to resources. This is a spatial analysis since we are focusing on 
-
-
+For our vulnerability analysis, Marco and I chose to calculate the number of schools per ward in Dar es Salaam in hopes to understand how educational resources are distributed around the city. Wards with a lower number of schools may indicate areas with less access to resources, an indicator of vulnerabilty. Wards with a higher number of schools may indicate neighborhoods with more access to resources. This exercise is a spatial analysis since we aim to find out the distribution of schools in relation to the administrative subwards across our defined space in hopes to understand a pattern or trend. 
 
 
 The concept of counting the number of schools per ward seems simple, but ran into some unexpected problems. Therefore, I have outlined our process below. Our final leaflet map is attached [here](dsmmap).
@@ -17,16 +15,24 @@ The concept of counting the number of schools per ward seems simple, but ran int
 
 Our data from this lab was downloaded from [Tanzania Resilience Academy](https://resilienceacademy.ac.tz/) and [Open Street Map](https://www.openstreetmap.org/). 
 
-The first step involves downlaoding data from [open street map](https://www.openstreetmap.org/) into QGIS. We used these [files] written by our professor, Joe Holler, and proceeded to preform the following steps:
+# Data Download
+
+-- Download data from [open street map](https://www.openstreetmap.org/) into QGIS -- 
+We used these [files] written by our professor, Joe Holler, and proceeded to preform the following steps:
 1. Download Open Street Map data by going to [open street map](https://www.openstreetmap.org/) and zooming to the desired    extent. Click "Overpass API" and save the file as a ".osm" file. 
 2. Open the convertOSM.bat in Notepad++ and change the database name to your database and the username to your username. Save.
-3. Open dsm.style in Notepad++ and edit for the desired tags. In our case, we desired schools tags, so the script looked    like this: 
-        "node,way     school      text       linear." 
-If polygons are desired, change "linear" to "polygons." If points are desired, change "node,way" to "node."
+3. Open dsm.style in Notepad++ and edit for the desired tags.
 4. Run the convertOSM.bat and the data will download into the PostGIS database!
+
+-- Download data from [Tanzania Resilience Academy](https://resilienceacademy.ac.tz/) into QGIS --
+1. We first added a WFT feature layer in QGIS 
+2. Choose a logical name and insert this url: https://geonode.resilienceacademy.ac.tz/geoserver/ows. Hit ok.
+3. Add the "Dar es Salaam Administrative Sub-wards" layer to QGIS
+4. Open DB Manager and connect to your database
+5. Import the "Dar es Salaam Administrative Sub-wards" layer
   
 
-After downloading our data, we are reading to use SQL to execute our research question. 
+After downloading our data, we are reading to use SQL to execute our research question. Download our complete and annotated SQL code [here](DSMSchools.sql).
 
 # Step 1
 We selected for the data that we wanted to use in our analysis. Seeing as we wanted to look at number of schools per ward, we used the SELECT tool WHERE amenity = 'school'. We added, "CREATE VIEW," so we could have a visualize of the data.
