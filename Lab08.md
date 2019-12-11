@@ -5,7 +5,7 @@ The goals of this lab are to test the reproducability of a multi-criteria analys
 
 # Data
 
-Demographic Health Surveys - conducted by the U.S. Agency for International Development (USAID) from 2004-2010. To gain access to these surveys, please apply. 
+Demographic Health Surveys - conducted by the U.S. Agency for International Development (USAID) from 2004-2010. To gain access to these surveys, please go through the USAID organization. 
 
 [DHS Cluster Points](https://dhsprogram.com/What-We-Do/GPS-Data-Collection.cfm)
 
