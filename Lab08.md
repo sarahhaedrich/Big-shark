@@ -1,15 +1,21 @@
 # Lab 07 & Lab 08: Malawi Vulnerability Assessment: Looking at Reproducibility and Replicability
 
 
-The goals of this lab are to test the reproducability of a multi-criteria analysis of vulnerability in Malawi by [Malcolm, Weaver, and Krakowka, 2014](VulnerabilityMalcolm.pdf).
+The goals of this lab are to test the reproducability of a multi-criteria analysis of vulnerability in Malawi by [Malcolm, Weaver, and Krakowka, 2014](VulnerabilityMalcolm.pdf). In order to test the reproducibility of this study, we need to be able to access all the data and follow the workflow of Malcolm exactly, including the defined parameters. For this exercise, we chose to replicate the map for the adaptative capacity scores and the vulnerability to climate change scores shown in Figure 4 and Figure 5, respectively. 
 
 # Data
 
-Demographic Health Surveys - conducted by the U.S. Agency for International Development (USAID) from 2004-2010
+Demographic Health Surveys - conducted by the U.S. Agency for International Development (USAID) from 2004-2010. To gain access to these surveys, please apply. 
 
-Flood Risk and Exposure to Drought from the UNEP Global Risk
+[DHS Cluster Points](https://dhsprogram.com/What-We-Do/GPS-Data-Collection.cfm)
+
+[Flood Risk](https://preview.grid.unep.ch/index.php?preview=data&events=floods&lang=eng) and [Exposure to Drought](https://preview.grid.unep.ch/index.php?preview=data&events=droughts&evcat=1&lang=eng) from the UNEP Global Risk
 
 FEWSnet Livelihood Data - 2005
+
+[GADM version 2.8 Boundaries for Malawi](https://gadm.org/download_country_v2.html)
+
+[DHS Survey boundary regions](http://spatialdata.dhsprogram.com/boundaries/#view=table&countryId=MW
 
 # Goals 
 
@@ -73,7 +79,7 @@ Cell Size: Malcolm et al. used a cell size of 0.416666, which does not match the
 
 Quantiles: Malcolmb et al. stated that each DHS survey category was broken into quantiles, meaning the scores in each category were assigned a value from 1 through 5. Lower values represent low resiliency/more vulnerability, and high values represent high resiliency/low vulnerability. As a class, we could not figure out how Malcomb assigned quantile scores to boolean data. For example, the category "owns a cell phone" is boolean data because the answers consist of either "yes" or "no." Grouping "yes" or "no" data into quantiles is not logical. No where in the paper did Malcolmb explicity explain how boolean data was incorporated into the adaptative capacity scores. Furthermore, one of my classmates, [Robert Kelley](https://rmkelley.github.io/) mentioned that Malcolmb et al. mentioned the use of quantiles, implying 1 - 5 grouping, but in another section of the paper mentioned grouping the data from 0-5. This sort of detail is crucial for the reproducibility of the study. 
 
-
+Data: Obviously, we could only complete 80% of Malcolmb et al.'s model since 20% of the data was inaccessible to our class. Therefore, this study is determined not reproducible for our situation. Even if we were able to access all the data for the study, Malcolmb et al.'s methodology leaves the user confused about key parameters and steps in the process. 
 
 
 
