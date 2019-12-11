@@ -72,10 +72,19 @@ The final product of the batch scripts is the channel network.
 ![ASTER Channel Network 2D](Aster_Channel_Closeup.PNG) ![ASTER Channel Network 3D](3D_hill_channelnetwork_ASTER.PNG) 
 
 
+# Discussion
+
+Sources of possible error: 
+The Resevoir: Mapping the flow of water through a resevoir based off of ASTER or SRTM data is near impossible. From the NUM files, we can see there is a resevoir located at the SW corner of our focus area, and varified by a google map search. 
+
+![Image](Kili_satti.png)
+
+The Agricultural Land: Furthermore, there is agricultural land to the south of Mt. Kilimanjaro. Mapping the channel network through agricultural land is challenging because 1) agricultural land is as flat as possible and 2) humans have altered the flow of water due to irrigation. 
+
+The Stream: The vegetation around the river bed sometimes hides the natural river feature. This means with satellite imagery, the trees will appear as a rise in elevation, rather than tree cover over a depression in the land where the water is flowing through, which will case an error in the channel network analysis. 
+
 
 Citations:
-
-Data:
 NASA/METI/AIST/Japan Spacesystems, and U.S./Japan ASTER Science Team. ASTER Global Digital Elevation
 Model V003. 2019, distributed by NASA EOSDIS Land Processes DAAC,
 https://doi.org/10.5067/ASTER/ASTGTM.003.
