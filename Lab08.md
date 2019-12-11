@@ -7,8 +7,6 @@ The goals of this lab are to test the reproducability of a multi-criteria analys
 
 Demographic Health Surveys - conducted by the U.S. Agency for International Development (USAID) from 2004-2010
 
-DHS Cluter Points
-
 Flood Risk and Exposure to Drought from the UNEP Global Risk
 
 FEWSnet Livelihood Data - 2005
@@ -22,6 +20,7 @@ In order to conceptalize Malcomb et al.'s method, we sketched a workflow in clas
 # Replicating Figure 4
 Our goal for this lab was to recreate Figure 4, which shows the average resilience score in the traditional authorities. The first Figure 4 shows data from 2004, and the second Figure 4 shows data from 2010. 
 
+![Figure 4](Figure42004.png)
 ![Figure 4](Figure4.png)
 
 The first step in Malcomb's multi-criteria vulnerability analysis was to calculate the "adaptative capacity" score, which will account for 40% of the Household Resilience score in the final calculation. The adaptative capacity score is a combination of assets and access in each household, and was calculated using the data from the DHS surveys. For each category in the DHS survey, the data was assigned a value of 1 through 5. The values were weighted according to the following figure:
@@ -42,13 +41,14 @@ Below is the resulting map:
 
 # Replicating Figure 5
 
-Unfortunately, we were unable to find the FEWSnet Livelihood data. Therefore, we are only able to create 80% of Malcomb's final vulnerability criteria from the adaptive capacity scores calculated from the DHS surveys (40%) and the physical exposure from the UNEP Global Risk. 
+Unfortunately, we were unable to find the FEWSnet Livelihood data. Therefore, we are only able to create 80% of Malcomb's final vulnerability criteria from the adaptive capacity scores calculated from the DHS surveys (40%) and the physical exposure from the UNEP Global Risk (20%). 
 
-Replicate 80% of Figure 5 - we are unable to access 20% of the data used for this map in our time span. We hope to replicate what we can given the accessible data. 
+This is Malcolm et al.'s Figure 5 shows the Malawi Vulnerability to climate change by adding up assets, access, livelihoods, and then subtracting exposure. In the previous analysis for adaptative capacity, a high adaptative capacity score indicates low vulnerability. However, a high value for physical exposure would suggest high vulnerability. Therefore, the physical exposure value is subtracted from the adaptative capacity score to keep the true meaning of values in the process of aggregating the data. 
+
 ![Figure 5](Figure5.png)
 
 
-To reproduce Figure 5 in which Malcolm et al. produced a map of vunerability to climate change, we used this [model](vulnerability.model3) to calculate vulnerability created by our professor, Joe Holler. 
+I downloaded the flood risk and drought risk layers from the UNEP Global Risk data into QGIS. In order to insure that both drought and flood risk layers would have the same extent, I used GDAL Wrap tool to set the extent of one layer, and then used GDAL Wrap again to force the other layer to use the same extent as the first layer. Using the functions GRASS r.Quantile and GRASS r.Recode, I reclassified the drought and flood layer to quantiles. Finally, I took used GDAL Wrap to rasterize the adaptive capacity layer. Now, the drought layer, the flood layer, and the adaptive capacity layer are both quantiled, rasterized, and share the same extent. I used this [model](vulnerability.model3) created by our professor, Joe Holler, to calculate the vulnerability for each layer. I 
 
 Below is a screen shot of the working model:
 
@@ -58,14 +58,10 @@ The model above creates the map below:
 
 ![Image](Figure_5_Bigger_Cell.PNG)
 
+
 In Malcolm's Figure 5, it is evident that Malcolm used a smaller cell size (0.416666) rather then the bigger cell size we used in our model (0.833333). Therefore, in order to replicate Malcolm's outcomes, I added a parameter in the model to allow the user to input a cell size. Below is a screen shot of the working model with the added parameter:
 
 ![Image](Model_2_Smallercellsize.PNG)
-
-
-
-
-
 
 
 
