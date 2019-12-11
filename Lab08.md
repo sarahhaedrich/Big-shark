@@ -24,6 +24,7 @@ Our goal for this lab was to recreate Figure 4, which shows the average resilien
 ![Figure 4](Figure4.png)
 
 The first step in Malcomb's multi-criteria vulnerability analysis was to calculate the "adaptative capacity" score, which will account for 40% of the Household Resilience score in the final calculation. The adaptative capacity score is a combination of assets and access in each household, and was calculated using the data from the DHS surveys. For each category in the DHS survey, the data was assigned a value of 1 through 5. The values were weighted according to the following figure:
+
 ![Image](Adaptativecapacity.png)
 
 The DHS surveys are only available to people after an application process. Our professor, Joe Holler, applied and received the DHS survey data, however, due to due to the privacy regulations around the data, we were not able to work directly with the data. However, each student in the class was assigned a variable from the figure above to write an SQL code to classify the DHS survey data into quantiles. Professor Holler then accumulated our work into this [SQL code](vulnerabilitySQL (1).sql). This SQL file will, in theory, produce a figure that resembles Figure 4. in Malcolm, et al.'s vulnerability analysis.
