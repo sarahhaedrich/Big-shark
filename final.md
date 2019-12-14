@@ -52,16 +52,29 @@ Below is a map showing percent of people born in the United States with insuranc
 
 ![](NativeNYC.png)
 
-Below is a map of showing percent of people who are not citizens of the United States with insurance coverage by census tract New York state and New York City:
+Below is a map showing percent of people who are not citizens of the United States with insurance coverage by census tract New York state and New York City:
 
 ![](NonCitizenState.png)
 ![](NonCitizenNYC.png)
+
+Below is a map showing insurance coverage rate of households earning under 25,000k a year in New York state and New York City:
+
+![](under25,000state.png)
+![](under25000city.png)
+
+Below is a map showing insurance coverage rate of households earning over 100,000k a year in New York state and New York City:
+
+![](over100000state.png)
+![](over100,000city.png)
 
 # Discussion
 
 In the map showing the rate of insurance coverage of people born in the United States, the overwhelming majority of census tracts report an insurance rate of over 85 percent. Exceptions include the two census tracts in the Center-East section of New York and a couple of census tracts in the Center-West section, all of which show insurance coverage below 85 percent. In the close-up of New York City, the large majority of census tracts report an insurance rate of over 95 percent, the highest category. 
 
-In the map showing the rate of insurance coverage of people who are not citizens of the United States, we understand a different story. The overwhelming color of the map is light yellow, showing 
+In the map showing the rate of insurance coverage of people who are not citizens of the United States, we understand a different story. The overwhelming color of both the New York state and the New York City map is light yellow representing an insurance coverage rate of less than 70%. Interestingly enough, in the New York state map, the insurance rate seems to be polarized - either the census tract has an insurance rate over 95% and above or the census tract has an insurance rate of 70% or below. This is interesting seeing as I would expect more of a gradient in insurance coverage rate across New York state. In the New York City map, areas in Manhattan still have a high insurance coverage rate, but overwhelmingly, non-U.S. citizens living in New York report a rate of under 70& insurance coverage rate. 
+
+
+
 
 # Error
 
