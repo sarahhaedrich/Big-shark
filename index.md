@@ -16,8 +16,14 @@ In lab 4, we wrote batch scripts for the hydrological analysis we completed in l
 [Lab 05 & Lab06: Vulnerability Analysis in Dar es Saalam](lab05.md)
 In lab 5 and 6, we designed a vulnerability analysis in analyze Dar es Saalam, Tanzania. My partner and I decided to look at the number of schools per ward in Dar es Saalam using data from the Tanzania Resilience Academy. 
 
-[Lab 07 & Lab08: Investigating Reproducibility and Replicability through Vulnerability Analysis in Malawi]()
+[Lab 07 & Lab08: Vulnerability Analysis in Malawi](Lab08.md) 
+In Lab 07 & Lab 08, our class investigated at reproducibility and replicability by attempting to reproduce a vulnerability analysis in Malawi.
 
 [Lab09 & Lab10: Twitter Analysis in R Studio](Lab09.md)
+In Lab 09 & Lab 10, our class preformed a textual and spatial analysis of Twitter data during Hurricane Dorian across the Eastern United States.
 
 [Twitter Article Review](twitter.md)
+Discussing reproducibility and replicability in a study using Twitter data.
+
+[Final Project](final.md)
+I looked at insurance coverage rates across New York state, with emphasis on New York City, relative to citizenship status and household income using R Studio. 
