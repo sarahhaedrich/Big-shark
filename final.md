@@ -21,6 +21,25 @@ After reading in the "ACS_17_5YR_S2701.csv" file, I extracted the relevant colum
 insurance.2017.two <- insurance.2017[,c("GEO.id", "GEO.id2", "GEO.display-label", "HC03_EST_VC44", "HC03_EST_VC45", "HC03_EST_VC46","HC03_EST_VC47", "HC03_EST_VC75", "HC03_EST_VC76", "HC03_EST_VC77", "HC03_EST_VC78", "HC03_EST_VC79")]
 ```
 
+I then renamed the columns to facilitate the code writing process. To rename a column, I used the below code:
+```
+names(insurance.2017.two)[4] <- "Native"
+```
+
+The U.S. Census bureau data has GEO id's attached the tract data, however, no spatial polygon information. I therefore used the function "tracts" found in the library "tigris" to download a spatial polygon dataframe for the census tracts of New York state. I have never used this package before, but I was excited at how simple and unproblematic the "tracts" function ran.
+
+```
+tracts <- tracts(state = 'NY', county = c(001...123), cb=TRUE)
+````
+
+I then needed to join the insurance data (referred to as "insurance.2017.two" in R script) to the tract spatial polygon layer. I used the geo_join function in the R script below:
+ ```
+ insurance.2017.merged<- geo_join(tracts, insurance.2017.two, "GEOID", "GEOID")
+```
+
+Now, I had the appropriate cleaned data to use for my final maps. 
+
+
 
 # Discussion
 
@@ -33,7 +52,3 @@ insurance.2017.two <- insurance.2017[,c("GEO.id", "GEO.id2", "GEO.display-label"
 
 U.S. Census Bureau, 2017. Selected characteristics of Health Insurance Cover in the United States,
 2013-2017 American Community Survey 5-Year Estimates. Retreived from https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S2701&prodType=table. 
-
-
-
-* I originally was hoping to use the function "get_acs" 
