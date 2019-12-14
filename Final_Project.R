@@ -120,67 +120,9 @@ tracts <- tracts(state = 'NY', county = c(
 View(tracts)
 
 insurance.2017.merged<- geo_join(tracts, insurance.2017.two, "GEOID", "GEOID")
-insurance.2017.merged2 <- insurance.2017.merged
-
-debt <- read_excel(file.choose())
-View(debt)
-
-codes <- read_csv(file.choose())
-View(codes)
-names(codes)[3] <- "county"
-names(codes)[2] <- "fip"
-names(codes)[7] <- "GEOID"
 
 
-join.fip <- left_join(debt,
-                      codes,
-                      by = "county")
 
-names(join.fip)[2] <- "state"
-names(join.fip)[3] <- "percent.total.debt"
-names(join.fip)[6] <- "median.total.debt"
-names(join.fip)[9] <- "percent.medical.debt"
-names(join.fip)[12] <- "median.medical.debt"
-names(join.fip)[16] <- "no.insurance.total"
-names(join.fip)[17] <- "no.insurance.white"
-names(join.fip)[18] <- "no.insurance.nonwhite"
-names(join.fip)[19] <- "average.income"
-names(join.fip)[20] <- "average.income.white"
-names(join.fip)[21] <- "average.income.nonwhite"
-
-
-data.frame(join.fip) 
-View(join.fip)
-
-debt.merged <- geo_join(insurance.merged2, join.fip, "GEOID", "GEOID")
-
-View(debt.merged)
-View(county)
-
-
-################ Mapping #######################################
-
-
-bins1 <- c(0,70,75,80,85,90,95,Inf)
-colors1 <- colorBin(palette = "YlOrRd",
-                    bins = bins1,
-                    domain = insurance.merged@data$NonCitizen)
-
-
-debt.2017.merged%>%
-  leaflet()%>%
-  addTiles()%>%
-  addPolygons(fillColor = ~colors1(NonCitizen), 
-              weight = 2, 
-              color = "white",
-              dashArray = "3",
-              opacity = 1,
-              fillOpacity = .7)%>%
-  setView(-96, 37.8,3)%>%
-  addLegend(pal = colors1,
-            values = ~NonCitizen,
-            title = NULL) %>%
-  setView(-75.333, 42.7128, zoom = 6)
 
 
 
