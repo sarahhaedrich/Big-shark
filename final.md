@@ -36,12 +36,32 @@ I then needed to join the insurance data (referred to as "insurance.2017.two" in
  ```
  insurance.2017.merged<- geo_join(tracts, insurance.2017.two, "GEOID", "GEOID")
 ```
+To download the R Script, click [here](Final_Project.R).
 
-Now, I had the appropriate cleaned data to use for my final maps. 
+Now, I had the appropriate cleaned data to use for my final maps. From  my intro to data science class, I had experience building Shiny Apps, a platform that allows users to interact data. I decided to put my final maps into a Shiny App so users could flip between panels, one showing insurance coverage relative to citizenship status (options = native, foreign born, naturalized, and non-citizen)and one showing insurance coverage relative to income (options = under 25,000, 25,000 - 49,999, 50,000 - 74,999, 75,000 - 99,999, and over 100,000). In each panel, the user is able to select an option and then view the corresponding map. In the map of New York state, New York City is hard to distinguish since there are so many census tracts within the city. Therefore, I created a second map zoomed in to New York City by changing the extent and the zoom. 
 
+# Visuals
 
+To explore my Shiny App, download [the app](app.R), and [the US Census Bureau data](ACS_17_5YR_S2701.csv)
+
+Here are some interesting visuals I found as I flipped through my Shiny App.
+
+Below is a map showing percent of people born in the United States with insurance coverage by census tract New York state and New York City:
+
+![](NativeState.png)
+
+![](NativeNYC.png)
+
+Below is a map of showing percent of people who are not citizens of the United States with insurance coverage by census tract New York state and New York City:
+
+![](NonCitizenState.png)
+![](NonCitizenNYC.png)
 
 # Discussion
+
+In the map showing the rate of insurance coverage of people born in the United States, the overwhelming majority of census tracts report an insurance rate of over 85 percent. Exceptions include the two census tracts in the Center-East section of New York and a couple of census tracts in the Center-West section, all of which show insurance coverage below 85 percent. In the close-up of New York City, the large majority of census tracts report an insurance rate of over 95 percent, the highest category. 
+
+In the map showing the rate of insurance coverage of people who are not citizens of the United States, we understand a different story. The overwhelming color of the map is light yellow, showing 
 
 # Error
 
