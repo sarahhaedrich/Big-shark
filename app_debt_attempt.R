@@ -13,7 +13,7 @@ library(dplyr)
 
 ########################################## Background Code #############################################
 
-## Census API Key / Installation
+# Census API Key / Installation
 # key <- c("850041a1292d809a716eb5556ec09fde5dff8941")
 # Sys.getenv("CENSUS_API_KEY")
 # census_api_key(key, install = TRUE, overwrite = TRUE)
@@ -21,7 +21,7 @@ library(dplyr)
 
 ## Download the data with the "get_acs" function
 # insurance.nyc <- get_acs(geography = "tract", table= "S2701", state = "NY", geometry = TRUE, output = "wide", year = 2017, cache_table = TRUE) 
-## Make a copy of the data! (never edit the original)
+# Make a copy of the data! (never edit the original)
 # insurance.nyc.two <- insurance.nyc
 
 
@@ -118,6 +118,7 @@ insurance.2017.merged2 <- insurance.2017.merged
 # Read in debt data
 debt <- read_excel("debt_medical.xlsx")
 
+
 # Read in NYC county codes data in order to join with debt data
 codes <- read_csv("NewYork.csv")
 
@@ -144,8 +145,6 @@ names(join.fip)[19] <- "average.income"
 names(join.fip)[20] <- "average.income.white"
 names(join.fip)[21] <- "average.income.nonwhite"
 
-data.frame(join.fip)
-unlist(join.fip)
 
 #Join debt data with insurance data
 debt.merged <- geo_join(insurance.2017.merged2, join.fip, "GEOID", "GEOID")
@@ -167,9 +166,8 @@ ui <- fluidPage(
                                    leafletOutput("citizen"),
                                    br(),
                                    br(),
-                                   leafletOutput("citizencity"),
-                                   br(),
-                                   br()),
+                                actionButton(inputId = "zoom",
+                                             label = "Zoom to New York City")),
                           tabPanel("Part 2: Income and Insurance Rate",
                                    selectInput(inputId = "range",
                                                label = "Select Income Range",
@@ -183,9 +181,8 @@ ui <- fluidPage(
                                    leafletOutput("income"),
                                    br(),
                                    br(),
-                                   leafletOutput("incomecity"),
-                                   br(),
-                                   br()),
+                                   actionButton(inputId = "zoom1",
+                                                label = "Zoom to New York City")),
                           tabPanel("Part 3: Exploring Medical Debt",
                                    selectInput(inputId = "factor",
                                                label = "Select a factor",
@@ -198,12 +195,11 @@ ui <- fluidPage(
                                    br(),
                                    br(),
                                    br(),
-                                   leafletOutput = ("debt"),
+                                   leafletOutput("debt"),
                                    br(),
                                    br(),
-                                   leafletOutput = ("debtcity"),
-                                   br(),
-                                   br())
+                                   actionButton(inputId = "zoom2",
+                                                label = "Zoom to New York City"))
     )))
 
 
@@ -216,7 +212,8 @@ server <- function(input, output) {
                             bins = bins1,
                             domain = debt.merged@data[,input$variable])
         
-        
+        if(input$zoom == 0){
+            return(
         debt.merged%>%
             leaflet()%>%
             addTiles()%>%
@@ -230,35 +227,27 @@ server <- function(input, output) {
                       values = ~get(input$variable),
                       title = NULL)%>%
             setView(-75.333, 42.7128, zoom = 6)
-        
+            )
+        }
+        else{
+            return(debt.merged%>%
+                       leaflet()%>%
+                         addTiles()%>%
+                         addPolygons(fillColor = ~colors1(get(input$variable)), 
+                                     weight = .5, 
+                                     color = "white",
+                                     dashArray = "3",
+                                     opacity = 1,
+                                     fillOpacity = .7)%>%
+                     addLegend(pal = colors1,
+                                   values = ~get(input$variable),
+                                   title = NULL)%>%
+                    setView(-73.8642, 40.705368, zoom = 10))
+                 
+        }
     })
     
     
-    
-    
-    output$citizencity <- renderLeaflet({
-        
-        bins1 <- c(0,70,75,80,85,90,95,Inf)
-        colors1 <- colorBin(palette = "YlOrRd",
-                            bins = bins1,
-                            domain = debt.merged@data[,input$variable])
-        
-        
-        debt.merged%>%
-            leaflet()%>%
-            addTiles()%>%
-            addPolygons(fillColor = ~colors1(get(input$variable)), 
-                        weight = .5, 
-                        color = "white",
-                        dashArray = "3",
-                        opacity = 1,
-                        fillOpacity = .7)%>%
-            addLegend(pal = colors1,
-                      values = ~get(input$variable),
-                      title = NULL)%>%
-            setView(-73.8642, 40.705368, zoom = 10)
-        
-    })
     
     
     
@@ -269,7 +258,8 @@ server <- function(input, output) {
                             bins = bins1,
                             domain = debt.merged@data[,input$range])
         
-        
+        if(input$zoom1 == 0){
+            return(
         debt.merged%>%
             leaflet()%>%
             addTiles()%>%
@@ -282,89 +272,79 @@ server <- function(input, output) {
             addLegend(pal = colors2,
                       values = ~get(input$range),
                       title = NULL)%>%
-            setView(-75.333, 42.7128, zoom = 6)
-        
-        
-        
-        
-    })
-    
-    output$incomecity <- renderLeaflet({
-        
-        bins1 <- c(0,70,75,80,85,90,95,Inf)
-        colors2 <- colorBin(palette = "YlGnBu",
-                            bins = bins1,
-                            domain = debt.merged@data[,input$range])
-        
-        
-        debt.merged%>%
-            leaflet()%>%
-            addTiles()%>%
-            addPolygons(fillColor = ~colors2(get(input$range)), 
-                        weight = .5, 
-                        color = "white",
-                        dashArray = "3",
-                        opacity = 1,
-                        fillOpacity = .7)%>%
-            addLegend(pal = colors2,
-                      values = ~get(input$range),
-                      title = NULL)%>%
-            setView(-73.8642, 40.705368, zoom = 10)
+            setView(-75.333, 42.7128, zoom = 6))
+        }
+            
+            else{
+                return(
+                    debt.merged%>%
+                        leaflet()%>%
+                        addTiles()%>%
+                        addPolygons(fillColor = ~colors2(get(input$range)), 
+                                    weight = .5, 
+                                    color = "white",
+                                    dashArray = "3",
+                                    opacity = 1,
+                                    fillOpacity = .7)%>%
+                        addLegend(pal = colors2,
+                                  values = ~get(input$range),
+                                  title = NULL)%>%
+                        setView(-73.8642, 40.705368, zoom = 10))
+            }
         
     })
     
-    # output$debt <- renderLeaflet({
+ 
     
-    #    bins3 <- c(0,.05, .1,.15,.20,.25, .30, .35, Inf)
-    #    colors3 <- colorBin(palette = "PuRd",
-    #                       bins = bins3,
-    #                      domain = debt.merged@data[,input$factor])
-    
-    
-    #  return(debt.merged%>%
-    #    leaflet()%>%
-    #    addTiles()%>%
-    #    addPolygons(fillColor = ~colors3(get(input$factor)), 
-    #                weight = 2, 
-    #                color = "white",
-    #                dashArray = "3",
-    #                opacity = 1,
-    #                fillOpacity = .7)%>%
-    #    addLegend(pal = colors3,
-    #              values = ~get(input$factor),
-    #              title = NULL) %>%
-    #              setView(-73.8642, 40.705368, zoom = 10))
-    
-    
-    # })
-    
-    # output$debtcity <- renderLeaflet({
-    
-    #  bins3 <- c(0,.05, .1,.15,.20,.25, .30, .35, Inf)
-    #  colors3 <- colorBin(palette = "PuRd",
-    #                   bins = bins3,
-    #                   domain = debt.merged@data[,input$factor])
-    
-    
-    # debt.merged%>%
-    #    leaflet()%>%
-    #    addTiles()%>%
-    #    addPolygons(fillColor = ~colors3(get(input$factor)), 
-    #                weight = .5, 
-    #                color = "white",
-    #                dashArray = "3",
-    #                opacity = 1,
-    #                fillOpacity = .7)%>%
-    #              addLegend(pal = colors1,
-    #              values = ~get(input$factor),
-    #             title = NULL)%>%
-    #    setView(-73.8642, 40.705368, zoom = 10)
+    output$debt <- renderLeaflet({
+
+       bins3 <- c(0,.05, .1,.15,.20,.25, .30, .35, Inf)
+       colors3 <- colorBin(palette = "PuRd",
+                          bins = bins3,
+                         domain = debt.merged@data[,input$factor])
+
+
+    if(input$zoom == 0){
+     return(debt.merged%>%
+       leaflet()%>%
+       addTiles()%>%
+       addPolygons(fillColor = ~colors3(debt.merged@data[,input$factor]),
+                   weight = .5,
+                   color = "white",
+                   dashArray = "3",
+                   opacity = 1,
+                   fillOpacity = .7)%>%
+       addLegend(pal = colors3,
+                 values = ~get(input$factor),
+                 title = NULL) %>%
+           setView(-75.333, 42.7128, zoom = 6))
+    }
+       
+       else{
+           return(
+               debt.merged%>%
+                       leaflet()%>%
+                       addTiles()%>%
+                       addPolygons(fillColor = ~colors3(debt.merged@data[,input$factor]),
+                                   weight = .5,
+                                   color = "white",
+                                   dashArray = "3",
+                                   opacity = 1,
+                                   fillOpacity = .7)%>%
+                                 addLegend(pal = colors3,
+                                 values = ~get(input$factor),
+                                title = NULL)%>%
+                   setView(-73.8642, 40.705368, zoom = 10)
+               
+           )
+       }
     
     
-    ## })
+    })
     
-    # }
+
     
+    }
     
     
     
