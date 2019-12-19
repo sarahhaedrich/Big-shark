@@ -26,4 +26,4 @@ In Lab 09 & Lab 10, our class preformed a textual and spatial analysis of Twitte
 Discussing reproducibility and replicability in a study using Twitter data.
 
 [Final Project](final.md)
-I looked at insurance coverage rates across New York state, with emphasis on New York City, relative to citizenship status and household income using R Studio. 
+I looked at insurance coverage rates across New York state, with emphasis on New York City, relative to citizenship status, household income, and medical debt using R Studio. 
