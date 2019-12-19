@@ -11,10 +11,11 @@ The goal of my final project is to investigate the rate of insurance coverage in
 
 # Data
  
-I used [American Fact Finder](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) to find data from [the US Census Bureau](https://www.census.gov/) regarding insurance coverage in the United States as it relates to income level and citizenship status. I downloaded table S2701 from the [American Community Survey](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S2701&prodType=table) from 2017. For the medical debt data, I downloaded the [data](Urban_Inst_Debt_In_America.xlsx) from the [Urban Institute](https://www.urban.org/). I navigated to the "Medical Debt" sheet and extracted the data for New York counties. The medical debt data did not have a GEOID column. I therefore downloaded this [data set](NewYork.csv), which included both the county data and GEOID data for New York state. 
+I used [American Fact Finder](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) to find data from [the US Census Bureau](https://www.census.gov/) regarding insurance coverage in the United States as it relates to income level and citizenship status. I downloaded table S2701 from the [American Community Survey](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S2701&prodType=table) from 2017. For the medical debt data, I downloaded the [data](Urban_Inst_Debt_In_America.xlsx) from the [Urban Institute](https://www.urban.org/). I navigated to the "Medical Debt" sheet and extracted the data for New York counties. The medical debt data did not have a GEOID column. I therefore downloaded a data set from the Federal Communications Commission, which included both the county data and GEOID data for New York state. 
 
 To access the metadata, data, and help documentation, click [here](AACS_17_5YR_S2701)
-
+To access the Urban Institute extracted data, click [here](debt_medical.xlsx) and click [here](Debt_in_America_Technical_Appendix.pdf) for the data appendix.
+To access the county/GEOID data of New York State from the Federal Communications Commission, click [here](NewYork.csv)
 
 # Method
 
@@ -63,9 +64,9 @@ Now, I had the appropriate cleaned data to use for my final maps. The final maps
 
 # Visuals
 
-To explore my Shiny App, download [the app](app.R), and [the US Census Bureau data](ACS_17_5YR_S2701.csv)
+To explore my Shiny App, download [the app](debtapp.R), [the US Census Bureau data](ACS_17_5YR_S2701.csv), [Urban Institute aata](debt_medical.xlsx), and the [FCC data]((NewYork.csv). Save the four files in the same location, open the app in R Studio, and hit run! Note: If you don't have R Studio on your computer, you can still use my app by clicking on the link at the top of this page!
 
-Here are some interesting visuals I found as I flipped through my Shiny App.
+# Here are some interesting visuals I found as I flipped through my Shiny App.
 
 Below is a map showing percent of people born in the United States with insurance coverage by census tract New York state and New York City:
 
@@ -103,10 +104,7 @@ In terms of "openness," I believe my final project process is open. Both R Studi
 
 # Error
 
-  Originally, I hoped to make use of the "tidycensus" package built for R Studio. I originally read in the data from the American Community Surveys using the "get_acs" function after acquiring a CENSUS API key. However, I ran into a serious issue when I tried to interpret the column names. I compared data downloaded directly from the American Fact Finder website with the data downloaded with the get_acs function using the meta
-  
-  data to interpret column names. When I compared what should have been identical columns, the data did not match. I therefore decided to bypass the use of the get_acs function. Instead, I used the data direclty downloaded from the American Fact Finder website and uploaded the data into R Studio using the "read_csv" function. In my script, I have included my attempt at using the "get_acs" function, however, I have hashtagged the code so the code will not run in the app. 
-   I would also add that when I did use the "get_acs" function, the runtime was approximately 3-5 minutes to get the app up and running. When I downloaded the data onto my desktop, and used the "read_csv" file, my run time decreased to around 1 minute. Therefore, for my project, I believe uploaded the data using "read_csv" works better. 
+  Originally, I hoped to make use of the "tidycensus" package built for R Studio. I originally read in the data from the American Community Surveys using the "get_acs" function after acquiring a CENSUS API key. However, I ran into a serious issue when I tried to interpret the column names. I compared data downloaded directly from the American Fact Finder website with the data downloaded with the get_acs function using the metadata to interpret column names. When I compared what should have been identical columns, the data did not match. I therefore decided to bypass the use of the get_acs function. Instead, I used the data direclty downloaded from the American Fact Finder website and uploaded the data into R Studio using the "read_csv" function. In my script, I have included my attempt at using the "get_acs" function, however, I have hashtagged the code so the code will not run in the app. I would also add that when I did use the "get_acs" function, the runtime was approximately 3-5 minutes to get the app up and running. When I downloaded the data onto my desktop, and used the "read_csv" file, my run time decreased to around 1 minute. Therefore, for my project, I believe uploaded the data using "read_csv" works better. 
    
    
 
