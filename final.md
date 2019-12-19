@@ -1,15 +1,17 @@
 
 # My Final Project
 
+Check out my Shiny app [here](https://haedrich.shinyapps.io/OpenSource/).
+
 # Introduction
 
-The goal of my final project is to investigate the rate of insurance coverage in the United States. I was inspired by [this episode](https://www.nytimes.com/2019/12/02/podcasts/the-daily/medicare.html) on [the Daily](https://www.nytimes.com/column/the-daily), a podcast produced by [the New York Times](https://www.nytimes.com/). The episode tells the story of a woman living in West Virgina who is getting sued by her local hospital over unpaid medical bills, even though the women has a full time job and insurance. After listening, I was motivated to investigate insurance coverage throughout New York state under the assumption that uninsured individuals are more vulnerable to compounding medical bills. Through my analysis, I was hoping to discover whether or not vulnerable populations exist within New York state (I picked New York state because I'm planning on moving there next fall). For this analysis, I examined the realtionship between citizenship status and income level in relation to insurance coverage across census tracts in New York state. This is a spatial analysis since I'm investigating how insurance rates, citizenship status, and income interact and change throughout space in order to expose a pattern or trend. I will be done with my analysis when I have a map that shows the relationship between citizenship, insurance coverate rate, and household income across New York state.
+The goal of my final project is to investigate the rate of insurance coverage in the United States. I was inspired by [this episode](https://www.nytimes.com/2019/12/02/podcasts/the-daily/medicare.html) on [the Daily](https://www.nytimes.com/column/the-daily), a podcast produced by [the New York Times](https://www.nytimes.com/). The episode tells the story of a woman living in West Virgina who is getting sued by her local hospital over unpaid medical bills, even though the women has a full time job and insurance. After listening, I was motivated to investigate insurance coverage throughout New York state under the assumption that uninsured individuals are more vulnerable to compounding medical bills. Through my analysis, I was hoping to discover whether or not vulnerable populations exist within New York state (I picked New York state because I'm planning on moving there next fall). For this analysis, I examined the realtionship between citizenship status, income level, and medical debt in relation to insurance coverage across census tracts in New York state. This is a spatial analysis since I'm investigating how insurance rates, citizenship status, medical debt, and income interact and change throughout space in order to expose a pattern or trend. I will be done with my analysis when I have a map that shows the relationship between citizenship, insurance coverate rate, medical debt, and household income across New York state.
   For my analysis, I used the open source software, [R Studio](https://rstudio.com/), Version 1.2.1335. My Open Source GIS class used R Studio to analyze twitter data during Hurricane Dorian in [Lab 09 & Lab10](Lab09.md). Simultaneously, I learned how to code in R while taking [Introduction to Data Science](https://catalog.middlebury.edu/courses/view/course/course%2FMATH0216), however, we only learned very basic mapping techniques. I decided to use R Studio for this project so I could integrate my skills and knowledge culminated during Open Source GIS with my understanding of R Studio from Introduction to Data Science. 
 
 
 # Data
  
-I used [American Fact Finder](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) to find data from [the US Census Bureau](https://www.census.gov/) regarding insurance coverage in the United States. I downloaded table S2701 from the [American Community Survey](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S2701&prodType=table) from 2017. 
+I used [American Fact Finder](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) to find data from [the US Census Bureau](https://www.census.gov/) regarding insurance coverage in the United States as it relates to income level and citizenship status. I downloaded table S2701 from the [American Community Survey](https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_17_5YR_S2701&prodType=table) from 2017. For the medical debt data, I downloaded the [data](Urban_Inst_Debt_In_America.xlsx) from the [Urban Institute](https://www.urban.org/). I navigated to the "Medical Debt" sheet and extracted the data for New York counties. The medical debt data did not have a GEOID column. I therefore downloaded this [data set](NewYork.csv), which included both the county data and GEOID data for New York state. 
 
 To access the metadata, data, and help documentation, click [here](AACS_17_5YR_S2701)
 
@@ -36,9 +38,28 @@ I then needed to join the insurance data (referred to as "insurance.2017.two" in
  ```
  insurance.2017.merged<- geo_join(tracts, insurance.2017.two, "GEOID", "GEOID")
 ```
-To download the R Script, click [here](Final_Project.R).
+I now have a spatial polygon layer containing information about citizenship status and income as it relates to insurance coverage rate from the US Census Bureau. I then needed to upload the debt data from the Urban Institute (I named the data file "debt_medical.xlsx). I downloaded the data from the website and ran this code to upload the data into R Studio:
+```
+debt <- read_excel("debt_medical.xlsx")
+```
+I then read in the data containing county names and the respective GEOIDs with this code and renamed the columns appropriately:
+```
+codes <- read_csv("NewYork.csv")
+```
 
-Now, I had the appropriate cleaned data to use for my final maps. From  my intro to data science class, I had experience building Shiny Apps, a platform that allows users to interact data. I decided to put my final maps into a Shiny App so users could flip between panels, one showing insurance coverage relative to citizenship status (options = native, foreign born, naturalized, and non-citizen)and one showing insurance coverage relative to income (options = under 25,000, 25,000 - 49,999, 50,000 - 74,999, 75,000 - 99,999, and over 100,000). In each panel, the user is able to select an option and then view the corresponding map. In the map of New York state, New York City is hard to distinguish since there are so many census tracts within the city. Therefore, I created a second map zoomed in to New York City by changing the extent and the zoom. 
+I joined the debt data with the county-GEOID data with this code and renamed the columns appropriately:
+```
+join.fip <- left_join(debt,
+                      codes,
+                      by = "county")                  
+````
+I then preformed a geo_join (see above):
+```
+debt.merged <- geo_join(insurance.2017.merged2, join.fip, "GEOID", "GEOID")
+```
+
+
+Now, I had the appropriate cleaned data to use for my final maps. The final maps can be produced by using the above code in an R Script in R Studio. However, from  my intro to data science class, I had experience building Shiny Apps, a platform that allows users to interact data. I decided to put my final maps into a Shiny App so users could flip between panels -- one panel showing insurance coverage relative to citizenship status (options = native, foreign born, naturalized, and non-citizen), one panel showing insurance coverage relative to income (options = under 25,000, 25,000 - 49,999, 50,000 - 74,999, 75,000 - 99,999, and over 100,000), and one panel showing percent medical debt. In the first two panels, the user is able to select an option and then view the corresponding map. In the map of New York state, New York City is hard to distinguish since there are so many census tracts within the city. Therefore, I created a button which allows the user to zoom in on New York City by changing the extent and the zoom. 
 
 # Visuals
 
@@ -88,8 +109,6 @@ In terms of "openness," I believe my final project process is open. Both R Studi
    I would also add that when I did use the "get_acs" function, the runtime was approximately 3-5 minutes to get the app up and running. When I downloaded the data onto my desktop, and used the "read_csv" file, my run time decreased to around 1 minute. Therefore, for my project, I believe uploaded the data using "read_csv" works better. 
    
    
-In addition to this analysis, I also tried to include [medical debt data](debt_medical.xlsx) sourced from [the Urban Institute](https://www.urban.org/) in a third panel in my Shiny App. The debt data will graph in a regular R Script, however, not in the Shiny App for reasons I cannot figure out right now. I have attached the R Script [here](app_debt_attempt.R). The code I wrote to incorporate medical debt data is hashtagged out. The Urban Institute published an app online that shows median debt, percent of debt among other factors such as non-white population with percent debt and annual household income. Here is the link to this [interactive map](https://apps.urban.org/features/debt-interactive-map/?type=medical&variable=avg_income&state=36). As a continuation of this project, I would like to try and recreate this map using a Shiny App. The authors have published an appendix with the data and a github account to accompany their process (kudos to them). 
-
 
 # Citations
 
