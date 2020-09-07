@@ -7,7 +7,6 @@ My name is Sarah Haedrich, and I'm currently a student at Middlebury College gra
 [Lab 01 & Lab02: QGIS Direction and Distance Model](lab02.md)
 In lab 2, we worked in QGIS to create a model to calculate the direction and distance from polygons to a point. I used the model I created to look at median gross rent in comparison to distance and direction in El Paso Texas.
 
-
 Median Gross Rent by census tract in El Paso:
 ![](El_Paso_MGR.png)
 
@@ -18,6 +17,8 @@ In lab 3, we worked in SAGA to create preform a hydrological analysis of Mt. Kil
 In lab 4, we wrote batch scripts for the hydrological analysis we completed in lab 3 using both SRTM data and ASTER data downloaded from Earthdata Search. We also used error analysis  
 
 ![](3D_hill_channelnetwork_SRTM.PNG)
+
+
 
 [Lab 05 & Lab06: Vulnerability Analysis in Dar es Saalam](lab05.md)
 In lab 5 and 6, we designed a vulnerability analysis in analyze Dar es Saalam, Tanzania. My partner and I decided to look at the number of schools per ward in Dar es Saalam using data from the Tanzania Resilience Academy. 
