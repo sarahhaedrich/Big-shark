@@ -7,7 +7,8 @@ My name is Sarah Haedrich, and I'm currently a student at Middlebury College gra
 [Lab 01 & Lab02: QGIS Direction and Distance Model](lab02.md)
 In lab 2, we worked in QGIS to create a model to calculate the direction and distance from polygons to a point. I used the model I created to look at median gross rent in comparison to distance and direction in El Paso Texas.
 
-Median Gross Rent by census tract in El Paso
+
+Median Gross Rent by census tract in El Paso:
 ![](El_Paso_MGR.png)
 
 [Lab 03: Hydrological Analysis of Mt. Kilimanjaro](Lab03.md)
@@ -29,6 +30,7 @@ In Lab 07 & Lab 08, our class investigated at reproducibility and replicability 
 [Lab09 & Lab10: Twitter Analysis in R Studio](Lab09.md)
 In Lab 09 & Lab 10, our class preformed a textual and spatial analysis of Twitter data during Hurricane Dorian across the Eastern United States.
 
+Twitter activity concerning Hurricane Dorian
 ![](Heat(KernalDensityEstimation).PNG)
 
 [Twitter Article Review](twitter.md)
@@ -37,5 +39,5 @@ Discussing reproducibility and replicability in a study using Twitter data.
 [Final Project](final.md)
 I looked at insurance coverage rates across New York state, with emphasis on New York City, relative to citizenship status, household income, and medical debt using R Studio. 
 
-Insurance coverage rate of households earning under 25,000k a year in New York state
+Insurance coverage rate of households earning under 25,000k a year in New York state:
 ![](under25,000state.png)
