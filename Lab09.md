@@ -149,7 +149,7 @@ SELECT *, st_centroid(counties.geometry)
 AS centroidscounty
 FROM counties
 ```
-After finding the centroids for each of the counties, I ran the "Heatmap(Kernel Density Estimation)" Algorithm in QGIS with the radius set to 100 km, the pixel size at 500, and the weight set to the tweeter rate column. Interpreting the map below, we see that tweeter activity concerning Hurricane Dorian is largely concentrated on the coasts of South Carolina, Norht Carolina, and Virgina, which corresponds with the actualized path of Hurricane Dorian. 
+After finding the centroids for each of the counties, I ran the "Heatmap(Kernel Density Estimation)" Algorithm in QGIS with the radius set to 100 km, the pixel size at 500, and the weight set to the tweeter rate column. Interpreting the map below, we see that tweeter activity concerning Hurricane Dorian is largely concentrated on the coasts of South Carolina, North Carolina, and Virgina, which corresponds with the actualized path of Hurricane Dorian. 
 
 ![Image](Heat(KernalDensityEstimation).PNG)
 
