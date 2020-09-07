@@ -22,7 +22,7 @@ In lab 4, we wrote batch scripts for the hydrological analysis we completed in l
 [Lab 05 & Lab06: Vulnerability Analysis in Dar es Saalam](lab05.md)
 In lab 5 and 6, we designed a vulnerability analysis in analyze Dar es Saalam, Tanzania. My partner and I decided to look at the number of schools per ward in Dar es Saalam using data from the Tanzania Resilience Academy. 
 
-![](Lab05:06_preview.png)
+![](Lab06_preview.png)
 
 [Lab 07 & Lab08: Vulnerability Analysis in Malawi](Lab08.md) 
 In Lab 07 & Lab 08, our class investigated at reproducibility and replicability by attempting to reproduce a vulnerability analysis in Malawi.
