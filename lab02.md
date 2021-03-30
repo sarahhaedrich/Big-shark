@@ -26,10 +26,6 @@ Here is a map displaying the median gross rent of census tracts in El Paso:
 
 ![](El_Paso_Median_Gross_Rent.PNG)
 
-# Latino Population Density
-Here is a map displaying the density of the latino population by census tract in El Paso:
-
-![](El_Paso_Hispanic.PNG)
 
 
 # Graphs with Data Plotly
